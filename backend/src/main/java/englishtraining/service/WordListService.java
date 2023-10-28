@@ -43,7 +43,7 @@ public class WordListService {
 
     protected WordList findWordListById(String id) {
         return wordListRepository.findById(id).orElseThrow(
-                () -> new WordListNotFoundException("WordList not found with id: " + id)
+                () -> new WordListNotFoundException(id)
         );
     }
 }

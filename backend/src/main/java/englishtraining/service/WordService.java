@@ -57,12 +57,13 @@ public class WordService {
     }
 
     public void deleteWord(String id) {
+        findWordById(id);
         wordRepository.deleteById(id);
     }
 
     private Word findWordById(String id) {
         return wordRepository.findById(id).orElseThrow(
-                () -> new WordNotFoundException("Word not found with id: " + id)
+                () -> new WordNotFoundException(id)
         );
     }
 

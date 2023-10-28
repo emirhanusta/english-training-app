@@ -28,7 +28,7 @@ public class WordController {
     public ResponseEntity<WordDto> getWord(@PathVariable String id) {
         return ResponseEntity.ok(wordService.getWord(id));
     }
-    @GetMapping("/getAll/{id}")
+    @GetMapping("/getAll")
     public ResponseEntity<List<WordDto>> getAllWords (@RequestParam(name = "page") int page,
                                                       @RequestParam(name = "size") int size) {
         return ResponseEntity.ok(wordService.getAllWords(page, size));
