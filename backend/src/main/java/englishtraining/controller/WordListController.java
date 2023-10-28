@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/v1/word-list")
 public class WordListController {
@@ -20,6 +22,12 @@ public class WordListController {
     @PostMapping("/save")
     public ResponseEntity<WordListDto> createWordList(@Validated @RequestBody WordListRequest wordListRequest) {
         return ResponseEntity.ok(wordListService.createWordList(wordListRequest));
+    }
+
+    @GetMapping("/getAll")
+    public ResponseEntity<List<WordListDto>> getAllWordLists (@RequestParam(name = "page") int page,
+                                                              @RequestParam(name = "size") int size) {
+        return ResponseEntity.ok(wordListService.getAllWordLists(page, size));
     }
 
     @GetMapping("/get/{id}")

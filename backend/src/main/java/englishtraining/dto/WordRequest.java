@@ -10,7 +10,6 @@ public record WordRequest(
         @Nonnull
         String definition,
         String level,
-
         List<String> exampleSentences,
         @Nonnull
         String wordListId

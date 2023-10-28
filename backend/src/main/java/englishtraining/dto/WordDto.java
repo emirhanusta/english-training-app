@@ -2,6 +2,7 @@ package englishtraining.dto;
 
 import englishtraining.model.Level;
 import englishtraining.model.Word;
+import englishtraining.model.WordStatus;
 
 import java.util.List;
 import java.util.Objects;
@@ -11,6 +12,7 @@ public record WordDto(
         String name,
         String definition,
         Level level,
+        WordStatus status,
         List<String> exampleSentences,
         String wordListId
 ) {
@@ -21,6 +23,7 @@ public record WordDto(
                     word.getName(),
                     word.getDefinition(),
                     word.getLevel(),
+                    word.getStatus(),
                     null,
                     Objects.requireNonNull(word.getWordList()).getId());
 
@@ -29,6 +32,7 @@ public record WordDto(
                  word.getName(),
                  word.getDefinition(),
                  word.getLevel(),
+                 word.getStatus(),
                  word.getExampleSentences(),
                  Objects.requireNonNull(word.getWordList()).getId());
 

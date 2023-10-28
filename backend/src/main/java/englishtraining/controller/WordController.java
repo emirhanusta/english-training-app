@@ -2,6 +2,7 @@ package englishtraining.controller;
 
 import englishtraining.dto.WordDto;
 import englishtraining.dto.WordRequest;
+import englishtraining.model.Level;
 import englishtraining.service.WordService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -34,6 +35,19 @@ public class WordController {
         return ResponseEntity.ok(wordService.getAllWords(page, size));
     }
 
+    @GetMapping("/getAllByLevel/{level}")
+    public ResponseEntity<List<WordDto>> getAllWordsByLevel (@PathVariable String level,
+                                                             @RequestParam(name = "page") int page,
+                                                             @RequestParam(name = "size") int size) {
+        return ResponseEntity.ok(wordService.getAllWordsByLevel(page, size, level));
+    }
+
+    @GetMapping("/getAllByStatus/{status}")
+    public ResponseEntity<List<WordDto>> getAllWordsByStatus (@PathVariable String status,
+                                                              @RequestParam(name = "page") int page,
+                                                              @RequestParam(name = "size") int size) {
+        return ResponseEntity.ok(wordService.getAllWordsByStatus(page, size, status));
+    }
     @PutMapping("/update/{id}")
     public ResponseEntity<WordDto> updateWord(String id,@Validated @RequestBody WordRequest wordRequest) {
         return ResponseEntity.ok(wordService.updateWord(id, wordRequest));

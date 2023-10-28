@@ -6,11 +6,13 @@ import englishtraining.exception.WordNotFoundException;
 import englishtraining.model.Level;
 import englishtraining.model.Word;
 import englishtraining.model.WordList;
+import englishtraining.model.WordStatus;
 import englishtraining.repository.WordRepository;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class WordService {
@@ -30,6 +32,22 @@ public class WordService {
     public List<WordDto> getAllWords(int page, int size) {
         PageRequest pageRequest = PageRequest.of(page, size);
         return wordRepository.findAll(pageRequest).stream()
+                .map(WordDto::from)
+                .toList();
+    }
+
+    public List<WordDto> getAllWordsByStatus(int page, int size, String status) {
+        PageRequest pageRequest = PageRequest.of(page, size);
+        return wordRepository.findAll().stream()
+                .filter(word -> Objects.equals(word.getStatus().toString(), status))
+                .map(WordDto::from)
+                .toList();
+    }
+
+    public List<WordDto> getAllWordsByLevel(int page, int size, String level) {
+        PageRequest pageRequest = PageRequest.of(page, size);
+        return wordRepository.findAll().stream()
+                .filter(word -> Objects.equals(Objects.requireNonNull(word.getLevel()).toString(), level))
                 .map(WordDto::from)
                 .toList();
     }

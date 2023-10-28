@@ -14,7 +14,9 @@ data class Word @JvmOverloads constructor(
     var definition: String,
     var exampleSentences: List<String>? ,
     @Enumerated(EnumType.ORDINAL)
-    var level: Level?,
+    var level: Level ?,
+    @Enumerated(EnumType.ORDINAL)
+    var status: WordStatus = WordStatus.LEARNING,
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "wordList_id")
     var wordList: WordList? ,

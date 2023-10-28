@@ -8,6 +8,7 @@ import englishtraining.repository.WordListRepository;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Objects;
 
 @Service
@@ -19,16 +20,23 @@ public class WordListService {
         this.wordListRepository = wordListRepository;
     }
 
+    public WordListDto getWordList(String id) {
+        WordList wordList = findWordListById(id);
+        return WordListDto.from(wordList);
+    }
+
+    public List<WordListDto> getAllWordLists(int page, int size) {
+        PageRequest pageRequest = PageRequest.of(page, size);
+        return wordListRepository.findAll(pageRequest).stream()
+                .map(WordListDto::from)
+                .toList();
+    }
+
     public WordListDto createWordList(WordListRequest wordListRequest) {
         WordList wordList = new WordList(
                 wordListRequest.name()
         );
         return WordListDto.from(wordListRepository.save(wordList));
-    }
-
-    public WordListDto getWordList(String id) {
-        WordList wordList = findWordListById(id);
-        return WordListDto.from(wordList);
     }
 
     public WordListDto updateWordList(String id, WordListRequest wordListRequest) {
@@ -46,4 +54,5 @@ public class WordListService {
                 () -> new WordListNotFoundException(id)
         );
     }
+
 }
