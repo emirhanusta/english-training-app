@@ -29,24 +29,21 @@ public class WordController {
     public ResponseEntity<WordDto> getWord(@PathVariable String id) {
         return ResponseEntity.ok(wordService.getWord(id));
     }
-    @GetMapping("/getAll")
-    public ResponseEntity<List<WordDto>> getAllWords (@RequestParam(name = "page") int page,
-                                                      @RequestParam(name = "size") int size) {
-        return ResponseEntity.ok(wordService.getAllWords(page, size));
-    }
 
     @GetMapping("/getAllByLevel/{level}")
-    public ResponseEntity<List<WordDto>> getAllWordsByLevel (@PathVariable String level,
-                                                             @RequestParam(name = "page") int page,
-                                                             @RequestParam(name = "size") int size) {
-        return ResponseEntity.ok(wordService.getAllWordsByLevel(page, size, level));
+    public ResponseEntity<List<WordDto>> getAllWordsByLevel (@RequestParam String level,
+                                                             @RequestParam(defaultValue = "desc") String direction,
+                                                             @RequestParam(defaultValue = "0") int page,
+                                                             @RequestParam(defaultValue = "5") int size) {
+        return ResponseEntity.ok(wordService.getAllWordsByLevel(page, size, level, direction));
     }
 
     @GetMapping("/getAllByStatus/{status}")
-    public ResponseEntity<List<WordDto>> getAllWordsByStatus (@PathVariable String status,
-                                                              @RequestParam(name = "page") int page,
-                                                              @RequestParam(name = "size") int size) {
-        return ResponseEntity.ok(wordService.getAllWordsByStatus(page, size, status));
+    public ResponseEntity<List<WordDto>> getAllWordsByStatus (@RequestParam String status,
+                                                              @RequestParam(defaultValue = "desc") String direction,
+                                                              @RequestParam(defaultValue = "0") int page,
+                                                              @RequestParam(defaultValue = "5") int size) {
+        return ResponseEntity.ok(wordService.getAllWordsByStatus(page, size, status, direction));
     }
     @PutMapping("/update/{id}")
     public ResponseEntity<WordDto> updateWord(String id,@Validated @RequestBody WordRequest wordRequest) {
