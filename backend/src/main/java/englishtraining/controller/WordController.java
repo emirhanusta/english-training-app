@@ -2,7 +2,6 @@ package englishtraining.controller;
 
 import englishtraining.dto.WordDto;
 import englishtraining.dto.WordRequest;
-import englishtraining.model.Level;
 import englishtraining.service.WordService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -30,7 +29,7 @@ public class WordController {
         return ResponseEntity.ok(wordService.getWord(id));
     }
 
-    @GetMapping("/getAllByLevel/{level}")
+    @GetMapping("/getAllByLevel")
     public ResponseEntity<List<WordDto>> getAllWordsByLevel (@RequestParam String level,
                                                              @RequestParam(defaultValue = "desc") String direction,
                                                              @RequestParam(defaultValue = "0") int page,
@@ -38,7 +37,7 @@ public class WordController {
         return ResponseEntity.ok(wordService.getAllWordsByLevel(page, size, level, direction));
     }
 
-    @GetMapping("/getAllByStatus/{status}")
+    @GetMapping("/getAllByStatus")
     public ResponseEntity<List<WordDto>> getAllWordsByStatus (@RequestParam String status,
                                                               @RequestParam(defaultValue = "desc") String direction,
                                                               @RequestParam(defaultValue = "0") int page,

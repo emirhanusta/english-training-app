@@ -11,6 +11,7 @@ data class Word @JvmOverloads constructor(
     @Id
     val id : String = UUID.randomUUID().toString(),
     @NonNull
+    @Column(unique = true)
     var name: String,
     @NonNull
     var definition: String,
