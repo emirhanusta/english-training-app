@@ -1,0 +1,42 @@
+Index: frontend/english-word-training/src/index.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from 'react';\r\nimport ReactDOM from 'react-dom/client';\r\nimport './index.css';\r\nimport App from './App';\r\nimport reportWebVitals from './reportWebVitals';\r\n\r\nconst root = ReactDOM.createRoot(document.getElementById('root'));\r\nroot.render(\r\n  <React.StrictMode>\r\n    <App />\r\n  </React.StrictMode>\r\n);\r\n\r\n// If you want to start measuring performance in your app, pass a function\r\n// to log results (for example: reportWebVitals(console.log))\r\n// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals\r\nreportWebVitals();\r\n
+===================================================================
+diff --git a/frontend/english-word-training/src/index.js b/frontend/english-word-training/src/index.js
+--- a/frontend/english-word-training/src/index.js	
++++ b/frontend/english-word-training/src/index.js	
+@@ -1,13 +1,13 @@
+ import React from 'react';
+ import ReactDOM from 'react-dom/client';
+ import './index.css';
+-import App from './App';
++import Movie from './Movie.js';
+ import reportWebVitals from './reportWebVitals';
+ 
+ const root = ReactDOM.createRoot(document.getElementById('root'));
+ root.render(
+   <React.StrictMode>
+-    <App />
++    <Movie />
+   </React.StrictMode>
+ );
+ 
+Index: frontend/english-word-training/package.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"name\": \"english-word-training\",\r\n  \"version\": \"0.1.0\",\r\n  \"private\": true,\r\n  \"dependencies\": {\r\n    \"@testing-library/jest-dom\": \"^5.17.0\",\r\n    \"@testing-library/react\": \"^13.4.0\",\r\n    \"@testing-library/user-event\": \"^13.5.0\",\r\n    \"react\": \"^18.2.0\",\r\n    \"react-dom\": \"^18.2.0\",\r\n    \"react-scripts\": \"5.0.1\",\r\n    \"web-vitals\": \"^2.1.4\"\r\n  },\r\n  \"scripts\": {\r\n    \"start\": \"react-scripts start\",\r\n    \"build\": \"react-scripts build\",\r\n    \"test\": \"react-scripts test\",\r\n    \"eject\": \"react-scripts eject\"\r\n  },\r\n  \"eslintConfig\": {\r\n    \"extends\": [\r\n      \"react-app\",\r\n      \"react-app/jest\"\r\n    ]\r\n  },\r\n  \"browserslist\": {\r\n    \"production\": [\r\n      \">0.2%\",\r\n      \"not dead\",\r\n      \"not op_mini all\"\r\n    ],\r\n    \"development\": [\r\n      \"last 1 chrome version\",\r\n      \"last 1 firefox version\",\r\n      \"last 1 safari version\"\r\n    ]\r\n  },\r\n  \"devDependencies\": {\r\n    \"tailwindcss\": \"^3.3.5\"\r\n  }\r\n}\r\n
+===================================================================
+diff --git a/frontend/english-word-training/package.json b/frontend/english-word-training/package.json
+--- a/frontend/english-word-training/package.json	
++++ b/frontend/english-word-training/package.json	
+@@ -15,7 +15,8 @@
+     "start": "react-scripts start",
+     "build": "react-scripts build",
+     "test": "react-scripts test",
+-    "eject": "react-scripts eject"
++    "eject": "react-scripts eject",
++    "watch": "npx tailwindcss -i ./src/tailwind.css -o ./src/index.css -w"
+   },
+   "eslintConfig": {
+     "extends": [

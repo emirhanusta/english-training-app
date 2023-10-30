@@ -4,14 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3aef9cd-46e3-4b60-af47-7627ca6f1a5d" name="Changes" comment="new methods added to WordController">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/exception/InvalidValueException.java" afterDir="false" />
+    <list default="true" id="b3aef9cd-46e3-4b60-af47-7627ca6f1a5d" name="Changes" comment="react project added">
+      <change afterPath="$PROJECT_DIR$/frontend/english-word-training/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/english-word-training/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/english-word-training/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/english-word-training/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/english-word-training/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/english-word-training/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/english-word-training/public/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/english-word-training/public/logo512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/english-word-training/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/english-word-training/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/english-word-training/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/english-word-training/src/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/english-word-training/src/App.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/english-word-training/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/english-word-training/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/english-word-training/src/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/english-word-training/src/reportWebVitals.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/english-word-training/src/setupTests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/WordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/WordController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/Word.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/Word.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/WordList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/WordList.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,6 +124,17 @@
     </task>
     <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="crud operations edited" />
