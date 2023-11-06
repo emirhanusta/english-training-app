@@ -45,7 +45,7 @@ public class WordController {
         return ResponseEntity.ok(wordService.getAllWordsByStatus(page, size, status, direction));
     }
     @PutMapping("/update/{id}")
-    public ResponseEntity<WordDto> updateWord(String id,@Validated @RequestBody WordRequest wordRequest) {
+    public ResponseEntity<WordDto> updateWord(@PathVariable String id,@Validated @RequestBody WordRequest wordRequest) {
         return ResponseEntity.ok(wordService.updateWord(id, wordRequest));
     }
 

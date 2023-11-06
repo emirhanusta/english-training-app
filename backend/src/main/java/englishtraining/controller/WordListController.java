@@ -25,8 +25,8 @@ public class WordListController {
     }
 
     @GetMapping("/getAll")
-    public ResponseEntity<List<WordListDto>> getAllWordLists (@RequestParam(name = "page") int page,
-                                                              @RequestParam(name = "size") int size) {
+    public ResponseEntity<List<WordListDto>> getAllWordLists (@RequestParam(defaultValue = "0") int page,
+                                                              @RequestParam(defaultValue = "5") int size) {
         return ResponseEntity.ok(wordListService.getAllWordLists(page, size));
     }
 
@@ -36,7 +36,7 @@ public class WordListController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<WordListDto> updateWordList(String id,@Validated @RequestBody WordListRequest wordListRequest) {
+    public ResponseEntity<WordListDto> updateWordList(@PathVariable String id,@Validated @RequestBody WordListRequest wordListRequest) {
         return ResponseEntity.ok(wordListService.updateWordList(id, wordListRequest));
     }
 
