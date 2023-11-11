@@ -3,18 +3,18 @@ package englishtraining.dto;
 import englishtraining.model.Level;
 import englishtraining.model.Word;
 import englishtraining.model.WordStatus;
-
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 public record WordDto(
-        String id,
+        UUID id,
         String name,
         String definition,
         Level level,
         WordStatus status,
         List<String> exampleSentences,
-        String wordListId
+        UUID wordListId
 ) {
     public static WordDto from(Word word) {
          if (Objects.requireNonNull(word.getExampleSentences()).isEmpty())

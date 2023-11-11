@@ -14,6 +14,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class WordService {
@@ -26,14 +27,14 @@ public class WordService {
         this.wordListService = wordListService;
     }
 
-    public WordDto getWord(String id) {
+    public WordDto getWord(UUID id) {
         return WordDto.from(findWordById(id));
     }
 
     public List<WordDto> getAllWordsByStatus(int page, int size, String status, String direction) {
         Sort sort = Sort.by(directionControl(direction),"createdAt");
         PageRequest pageRequest = PageRequest.of(page, size).withSort(sort);
-        return wordRepository.findAll(pageRequest).stream()
+        return wordRepository.findAllByActiveTrue(pageRequest).stream()
                 .filter(word -> statusControl(status).equals(word.getStatus()))
                 .map(WordDto::from)
                 .toList();
@@ -42,7 +43,7 @@ public class WordService {
     public List<WordDto> getAllWordsByLevel(int page, int size, String level, String direction) {
         Sort sort = Sort.by(directionControl(direction),"createdAt");
         PageRequest pageRequest = PageRequest.of(page, size).withSort(sort);
-        return wordRepository.findAll(pageRequest).stream()
+        return wordRepository.findAllByActiveTrue(pageRequest).stream()
                 .filter(word -> levelControl(level).equals(word.getLevel()))
                 .map(WordDto::from)
                 .toList();
@@ -60,7 +61,7 @@ public class WordService {
         return WordDto.from(wordRepository.save(word));
     }
 
-    public WordDto updateWord(String id, WordRequest wordRequest) {
+    public WordDto updateWord(UUID id, WordRequest wordRequest) {
         Word word = findWordById(id);
         word.setName(wordRequest.name());
         word.setDefinition(wordRequest.definition());
@@ -70,13 +71,13 @@ public class WordService {
         return WordDto.from(wordRepository.save(word));
     }
 
-    public void deleteWord(String id) {
+    public void deleteWord(UUID id) {
         findWordById(id);
         wordRepository.deleteById(id);
     }
 
-    private Word findWordById(String id) {
-        return wordRepository.findById(id).orElseThrow(
+    private Word findWordById(UUID id) {
+        return wordRepository.findByIdAndActiveTrue(id).orElseThrow(
                 () -> new WordNotFoundException(id)
         );
     }

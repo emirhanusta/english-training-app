@@ -3,6 +3,7 @@ package englishtraining.dto;
 import jakarta.annotation.Nonnull;
 
 import java.util.List;
+import java.util.UUID;
 
 public record WordRequest(
         @Nonnull
@@ -12,6 +13,6 @@ public record WordRequest(
         String level,
         List<String> exampleSentences,
         @Nonnull
-        String wordListId
+        UUID wordListId
 ) {
 }

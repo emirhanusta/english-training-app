@@ -2,8 +2,10 @@ package englishtraining.dto;
 
 import englishtraining.model.Diary;
 
+import java.util.UUID;
+
 public record DiaryDto(
-        String id,
+        UUID id,
         String title,
         String content
 ) {

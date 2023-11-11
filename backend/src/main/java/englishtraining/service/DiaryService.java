@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class DiaryService {
@@ -18,7 +19,7 @@ public class DiaryService {
         this.diaryRepository = diaryRepository;
     }
 
-    public DiaryDto getDiary(String id) {
+    public DiaryDto getDiary(UUID id) {
         return DiaryDto.from(findDiaryById(id));
     }
 
@@ -36,18 +37,18 @@ public class DiaryService {
         return DiaryDto.from(diaryRepository.save(diary));
     }
 
-    public DiaryDto updateDiary(String id, DiaryRequest diaryRequest) {
+    public DiaryDto updateDiary(UUID id, DiaryRequest diaryRequest) {
         Diary diary = findDiaryById(id);
         diary.setTitle(diaryRequest.title());
         diary.setContent(diaryRequest.content());
         return DiaryDto.from(diaryRepository.save(diary));
     }
 
-    public void deleteDiary(String id) {
+    public void deleteDiary(UUID id) {
         diaryRepository.deleteById(id);
     }
 
-    private Diary findDiaryById(String id) {
+    private Diary findDiaryById(UUID id) {
         return diaryRepository.findById(id).orElseThrow(
                 () -> new DiaryNotFoundException(id)
         );

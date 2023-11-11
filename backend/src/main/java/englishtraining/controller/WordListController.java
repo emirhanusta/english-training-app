@@ -8,9 +8,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+import java.util.UUID;
+@CrossOrigin
 @RestController
-@RequestMapping("/v1/word-list")
+@RequestMapping("/api/v1/word-list")
 public class WordListController {
 
     private final WordListService wordListService;
@@ -31,17 +32,17 @@ public class WordListController {
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<WordListDto> getWordList(@PathVariable String id) {
+    public ResponseEntity<WordListDto> getWordList(@PathVariable UUID id) {
         return ResponseEntity.ok(wordListService.getWordList(id));
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<WordListDto> updateWordList(@PathVariable String id,@Validated @RequestBody WordListRequest wordListRequest) {
+    public ResponseEntity<WordListDto> updateWordList(@PathVariable UUID id,@Validated @RequestBody WordListRequest wordListRequest) {
         return ResponseEntity.ok(wordListService.updateWordList(id, wordListRequest));
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deleteWordList(@PathVariable String id) {
+    public ResponseEntity<Void> deleteWordList(@PathVariable UUID id) {
         wordListService.deleteWordList(id);
         return ResponseEntity.noContent().build();
     }

@@ -9,7 +9,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
+import java.util.UUID;
+
 
 @Service
 public class WordListService {
@@ -20,14 +21,14 @@ public class WordListService {
         this.wordListRepository = wordListRepository;
     }
 
-    public WordListDto getWordList(String id) {
+    public WordListDto getWordList(UUID id) {
         WordList wordList = findWordListById(id);
         return WordListDto.from(wordList);
     }
 
     public List<WordListDto> getAllWordLists(int page, int size) {
         PageRequest pageRequest = PageRequest.of(page, size);
-        return wordListRepository.findAll(pageRequest).stream()
+        return wordListRepository.findAllByActiveTrue(pageRequest).stream()
                 .map(WordListDto::from)
                 .toList();
     }
@@ -39,18 +40,20 @@ public class WordListService {
         return WordListDto.from(wordListRepository.save(wordList));
     }
 
-    public WordListDto updateWordList(String id, WordListRequest wordListRequest) {
+    public WordListDto updateWordList(UUID id, WordListRequest wordListRequest) {
         WordList wordList = findWordListById(id);
         wordList.setName(wordListRequest.name());
         return WordListDto.from(wordListRepository.save(wordList));
     }
 
-    public void deleteWordList(String id) {
-        wordListRepository.deleteById(id);
+    public void deleteWordList(UUID id) {
+        WordList wordList = findWordListById(id);
+        wordList.setActive(false);
+        wordListRepository.save(wordList);
     }
 
-    protected WordList findWordListById(String id) {
-        return wordListRepository.findById(id).orElseThrow(
+    protected WordList findWordListById(UUID id) {
+        return wordListRepository.findByIdAndActiveTrue(id).orElseThrow(
                 () -> new WordListNotFoundException(id)
         );
     }

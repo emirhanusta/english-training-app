@@ -8,9 +8,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+import java.util.UUID;
+@CrossOrigin
 @RestController
-@RequestMapping("/v1/diary")
+@RequestMapping("/api/v1/diary")
 public class DiaryController {
 
     private final DiaryService diaryService;
@@ -26,7 +27,7 @@ public class DiaryController {
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<DiaryDto> getDiary(@PathVariable String id) {
+    public ResponseEntity<DiaryDto> getDiary(@PathVariable UUID id) {
         return ResponseEntity.ok(diaryService.getDiary(id));
     }
 
@@ -36,12 +37,12 @@ public class DiaryController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<DiaryDto> updateDiary(@PathVariable String id,@Validated @RequestBody DiaryRequest diaryRequest) {
+    public ResponseEntity<DiaryDto> updateDiary(@PathVariable UUID id,@Validated @RequestBody DiaryRequest diaryRequest) {
         return ResponseEntity.ok(diaryService.updateDiary(id, diaryRequest));
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deleteDiary(@PathVariable String id) {
+    public ResponseEntity<Void> deleteDiary(@PathVariable UUID id) {
         diaryService.deleteDiary(id);
         return ResponseEntity.noContent().build();
     }

@@ -4,18 +4,48 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3aef9cd-46e3-4b60-af47-7627ca6f1a5d" name="Changes" comment="new methods added to WordController">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/DiaryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/DiaryDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/DiaryRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/exception/DiaryNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/Diary.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/repository/DiaryRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/DiaryService.java" afterDir="false" />
+    <list default="true" id="b3aef9cd-46e3-4b60-af47-7627ca6f1a5d" name="Changes" comment="new feature added! Diary can be added">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/EnglishTrainingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/EnglishTrainingApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/DiaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/DiaryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/WordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/WordController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/WordListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/WordListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/DiaryDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/DiaryDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/WordDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/WordDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/WordListDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/WordListDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/WordRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/WordRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/exception/DiaryNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/exception/DiaryNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/exception/WordListNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/exception/WordListNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/exception/WordNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/exception/WordNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/Diary.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/Diary.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/Word.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/Word.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/WordList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/WordList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/repository/DiaryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/repository/DiaryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/repository/WordListRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/repository/WordListRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/repository/WordRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/repository/WordRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/DiaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/DiaryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordListService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/src/setupTests.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,13 +55,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
-        <option value="Kotlin Enum" />
         <option value="Kotlin Class" />
         <option value="Kotlin Data Class" />
         <option value="Record" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
+        <option value="Kotlin Enum" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -81,6 +111,7 @@
     <configuration name="EnglishTrainingApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="englishtraining.EnglishTrainingApplication" />
       <module name="english-training-backend" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="englishtraining.*" />

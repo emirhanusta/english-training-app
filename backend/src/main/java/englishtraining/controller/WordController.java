@@ -8,9 +8,11 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
+@CrossOrigin
 @RestController
-@RequestMapping("/v1/word")
+@RequestMapping("/api/v1/word")
 public class WordController {
 
     private final WordService wordService;
@@ -25,7 +27,7 @@ public class WordController {
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<WordDto> getWord(@PathVariable String id) {
+    public ResponseEntity<WordDto> getWord(@PathVariable UUID id) {
         return ResponseEntity.ok(wordService.getWord(id));
     }
 
@@ -45,12 +47,12 @@ public class WordController {
         return ResponseEntity.ok(wordService.getAllWordsByStatus(page, size, status, direction));
     }
     @PutMapping("/update/{id}")
-    public ResponseEntity<WordDto> updateWord(@PathVariable String id,@Validated @RequestBody WordRequest wordRequest) {
+    public ResponseEntity<WordDto> updateWord(@PathVariable UUID id,@Validated @RequestBody WordRequest wordRequest) {
         return ResponseEntity.ok(wordService.updateWord(id, wordRequest));
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deleteWord(@PathVariable String id) {
+    public ResponseEntity<Void> deleteWord(@PathVariable UUID id) {
         wordService.deleteWord(id);
         return ResponseEntity.noContent().build();
     }

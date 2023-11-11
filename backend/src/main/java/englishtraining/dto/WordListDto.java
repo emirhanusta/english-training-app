@@ -3,9 +3,10 @@ package englishtraining.dto;
 import englishtraining.model.WordList;
 
 import java.util.List;
+import java.util.UUID;
 
 public record WordListDto(
-        String id,
+        UUID id,
         String name,
         List<WordDto> words
 ) {

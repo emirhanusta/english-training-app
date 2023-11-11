@@ -9,7 +9,8 @@ import java.util.*
 @Entity
 data class Word @JvmOverloads constructor(
     @Id
-    val id : String = UUID.randomUUID().toString(),
+    @GeneratedValue
+    val id : UUID? = null,
     @NonNull
     @Column(unique = true)
     var name: String,
@@ -23,6 +24,7 @@ data class Word @JvmOverloads constructor(
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "wordList_id")
     var wordList: WordList?,
+    var active: Boolean = true,
     @CreationTimestamp
     var createdAt: Date? = null,
     @UpdateTimestamp
