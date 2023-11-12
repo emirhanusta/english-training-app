@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -28,7 +29,8 @@ public class WordListService {
 
     public List<WordListDto> getAllWordLists(int page, int size) {
         PageRequest pageRequest = PageRequest.of(page, size);
-        return wordListRepository.findAllByActiveTrue(pageRequest).stream()
+        return wordListRepository.findAllByActiveTrue(pageRequest)
+                .stream()
                 .map(WordListDto::from)
                 .toList();
     }
@@ -48,6 +50,7 @@ public class WordListService {
 
     public void deleteWordList(UUID id) {
         WordList wordList = findWordListById(id);
+        Objects.requireNonNull(wordList.getWords()).forEach(word -> word.setActive(false));
         wordList.setActive(false);
         wordListRepository.save(wordList);
     }
@@ -57,5 +60,4 @@ public class WordListService {
                 () -> new WordListNotFoundException(id)
         );
     }
-
 }
