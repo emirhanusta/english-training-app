@@ -51,17 +51,19 @@ public class WordService {
 
     public WordDto createWord(WordRequest wordRequest) {
         WordList list = wordListService.findWordListById(wordRequest.wordListId());
+        existsWordByName(wordRequest.name());
         Word word = new Word(
                 wordRequest.name(),
                 wordRequest.definition(),
                 wordRequest.exampleSentences(),
-                Level.valueOf(wordRequest.level()),
+                levelControl(wordRequest.level()),
                 list
         );
         return WordDto.from(wordRepository.save(word));
     }
 
     public WordDto updateWord(UUID id, WordRequest wordRequest) {
+        existsWordByName(wordRequest.name());
         Word word = findWordById(id);
         word.setName(wordRequest.name());
         word.setDefinition(wordRequest.definition());
@@ -80,6 +82,12 @@ public class WordService {
         return wordRepository.findByIdAndActiveTrue(id).orElseThrow(
                 () -> new WordNotFoundException(id)
         );
+    }
+
+    private void existsWordByName(String name) {
+        if (wordRepository.existsByNameAndActiveTrue(name)) {
+            throw new InvalidValueException("Word already exists with this name: " + name);
+        }
     }
 
     private Sort.Direction directionControl(String direction) {

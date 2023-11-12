@@ -13,4 +13,5 @@ public interface WordRepository extends JpaRepository<Word, UUID> {
 
     List<Word> findAllByActiveTrue(PageRequest pageRequest);
 
+    Boolean existsByNameAndActiveTrue(String name);
 }
