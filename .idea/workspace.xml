@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3aef9cd-46e3-4b60-af47-7627ca6f1a5d" name="Changes" comment="fixup! unique name restriction added for word">
+    <list default="true" id="b3aef9cd-46e3-4b60-af47-7627ca6f1a5d" name="Changes" comment="new filter method added for words">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/exception/WordListNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/exception/WordListNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordListService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/english-word-training/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/english-word-training/README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/english-word-training/package-lock.json" beforeDir="false" />
@@ -147,7 +143,21 @@
       <option name="project" value="LOCAL" />
       <updated>1699781967092</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="unique name restriction added for word">
+      <created>1699806772479</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1699806772479</updated>
+    </task>
+    <task id="LOCAL-00006" summary="new filter method added for words">
+      <created>1699820019406</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1699820019406</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,8 +175,16 @@
     <MESSAGE value="crud operations edited" />
     <MESSAGE value="new methods added to WordController" />
     <MESSAGE value="Some improvements for the backend" />
-    <MESSAGE value="unique name restriction added for word" />
     <MESSAGE value="fixup! unique name restriction added for word" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixup! unique name restriction added for word" />
+    <MESSAGE value="fixup! unique name restriction added for word" />
+    <MESSAGE value="new filter method added for words" />
+    <option name="LAST_COMMIT_MESSAGE" value="new filter method added for words" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="englishtraining.model.Word" memberName="status" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
