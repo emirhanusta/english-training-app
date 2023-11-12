@@ -31,20 +31,14 @@ public class WordController {
         return ResponseEntity.ok(wordService.getWord(id));
     }
 
-    @GetMapping("/getAllByLevel")
-    public ResponseEntity<List<WordDto>> getAllWordsByLevel (@RequestParam String level,
-                                                             @RequestParam(defaultValue = "desc") String direction,
-                                                             @RequestParam(defaultValue = "0") int page,
-                                                             @RequestParam(defaultValue = "5") int size) {
-        return ResponseEntity.ok(wordService.getAllWordsByLevel(page, size, level, direction));
-    }
 
-    @GetMapping("/getAllByStatus")
-    public ResponseEntity<List<WordDto>> getAllWordsByStatus (@RequestParam String status,
-                                                              @RequestParam(defaultValue = "desc") String direction,
+    @GetMapping("/getAllWithFilter")
+    public ResponseEntity<List<WordDto>> getAllWithFilter (@RequestParam(defaultValue = "desc") String direction,
                                                               @RequestParam(defaultValue = "0") int page,
-                                                              @RequestParam(defaultValue = "5") int size) {
-        return ResponseEntity.ok(wordService.getAllWordsByStatus(page, size, status, direction));
+                                                              @RequestParam(defaultValue = "5") int size,
+                                                              @RequestParam(defaultValue = "ALL") String level,
+                                                              @RequestParam(defaultValue = "ALL") String status) {
+        return ResponseEntity.ok(wordService.getAllWithFilter(page, size, level, status, direction));
     }
     @PutMapping("/update/{id}")
     public ResponseEntity<WordDto> updateWord(@PathVariable UUID id,@Validated @RequestBody WordRequest wordRequest) {

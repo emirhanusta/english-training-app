@@ -31,20 +31,12 @@ public class WordService {
         return WordDto.from(findWordById(id));
     }
 
-    public List<WordDto> getAllWordsByStatus(int page, int size, String status, String direction) {
+    public List<WordDto> getAllWithFilter(int page, int size, String level, String status, String direction) {
         Sort sort = Sort.by(directionControl(direction),"createdAt");
         PageRequest pageRequest = PageRequest.of(page, size).withSort(sort);
         return wordRepository.findAllByActiveTrue(pageRequest).stream()
-                .filter(word -> statusControl(status).equals(word.getStatus()))
-                .map(WordDto::from)
-                .toList();
-    }
-
-    public List<WordDto> getAllWordsByLevel(int page, int size, String level, String direction) {
-        Sort sort = Sort.by(directionControl(direction),"createdAt");
-        PageRequest pageRequest = PageRequest.of(page, size).withSort(sort);
-        return wordRepository.findAllByActiveTrue(pageRequest).stream()
-                .filter(word -> levelControl(level).equals(word.getLevel()))
+                .filter(word -> level.equals("ALL") || levelControl(level).equals(word.getLevel()))
+                .filter(word -> status.equals("ALL") || statusControl(status).equals(word.getStatus()))
                 .map(WordDto::from)
                 .toList();
     }
@@ -70,7 +62,8 @@ public class WordService {
         word.setName(wordRequest.name());
         word.setDefinition(wordRequest.definition());
         word.setExampleSentences(wordRequest.exampleSentences());
-        word.setLevel(Level.valueOf(wordRequest.level()));
+        word.setLevel(levelControl(wordRequest.level()));
+        word.setStatus(statusControl(wordRequest.status()));
         word.setWordList(wordListService.findWordListById(wordRequest.wordListId()));
         return WordDto.from(wordRepository.save(word));
     }
