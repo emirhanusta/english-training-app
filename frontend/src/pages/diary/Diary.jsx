@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function Diary() {
   const [diary, setDiary] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(5); // Her sayfada kaç öğe gösterileceğini belirleyin
+  const [itemsPerPage, setItemsPerPage] = useState(5); 
 
   useEffect(() => {
     loadDiary();

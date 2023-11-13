@@ -4,26 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3aef9cd-46e3-4b60-af47-7627ca6f1a5d" name="Changes" comment="new filter method added for words">
+    <list default="true" id="b3aef9cd-46e3-4b60-af47-7627ca6f1a5d" name="Changes" comment="Feature: added UI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/src/reportWebVitals.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/english-word-training/src/setupTests.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699820019406</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Feature: added UI">
+      <created>1699820661118</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699820661118</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -178,7 +167,8 @@
     <MESSAGE value="fixup! unique name restriction added for word" />
     <MESSAGE value="fixup! unique name restriction added for word" />
     <MESSAGE value="new filter method added for words" />
-    <option name="LAST_COMMIT_MESSAGE" value="new filter method added for words" />
+    <MESSAGE value="Feature: added UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feature: added UI" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

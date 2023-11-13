@@ -17,7 +17,7 @@ export default function EditWord() {
     });
 
     const onExampleSentencesChange = (e) => {
-      const sentences = e.target.value.split('\n'); // Her satırdaki cümleleri ayır
+      const sentences = e.target.value.split('\n'); 
       setWord({ ...word, exampleSentences: sentences });
     };
 
@@ -34,11 +34,9 @@ export default function EditWord() {
         e.preventDefault();
         try {
         await axios.put(`http://localhost:8080/api/v1/word/update/${id}`, word);
-        // Başarıyla gönderildi, başka bir sayfaya yönlendirme veya başka bir işlem yapabilirsiniz.
         navigate(`/viewworddetails/${id}`);
       
       } catch (error) {
-        // Hata durumunda, hata mesajını göstermek için bir alert kullanabilirsiniz.
         alert(error.response.data.message);
       }
     };
