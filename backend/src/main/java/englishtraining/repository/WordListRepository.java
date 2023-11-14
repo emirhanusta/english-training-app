@@ -12,4 +12,6 @@ public interface WordListRepository extends JpaRepository<WordList, UUID> {
     Optional<WordList> findByIdAndActiveTrue(UUID id);
 
     List<WordList> findAllByActiveTrue(PageRequest pageRequest);
+
+    Optional<WordList> findByNameAndActiveTrue(String name);
 }

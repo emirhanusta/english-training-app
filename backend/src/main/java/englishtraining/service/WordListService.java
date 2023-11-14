@@ -2,6 +2,7 @@ package englishtraining.service;
 
 import englishtraining.dto.WordListDto;
 import englishtraining.dto.WordListRequest;
+import englishtraining.exception.AlreadyExistException;
 import englishtraining.exception.WordListNotFoundException;
 import englishtraining.model.WordList;
 import englishtraining.repository.WordListRepository;
@@ -17,9 +18,11 @@ import java.util.UUID;
 public class WordListService {
 
     private final WordListRepository wordListRepository;
+    private final WordService wordService;
 
-    public WordListService(WordListRepository wordListRepository) {
+    public WordListService(WordListRepository wordListRepository, WordService wordService) {
         this.wordListRepository = wordListRepository;
+        this.wordService = wordService;
     }
 
     public WordListDto getWordList(UUID id) {
@@ -55,9 +58,33 @@ public class WordListService {
         wordListRepository.save(wordList);
     }
 
-    protected WordList findWordListById(UUID id) {
+    public WordListDto addWordToWordList(String name, UUID wordId) {
+        WordList wordList = findWordListByName(name);
+        Objects.requireNonNull(wordList.getWords())
+                .stream()
+                .filter(word -> Objects.equals(word.getId(), wordId))
+                .findAny()
+                .ifPresentOrElse(
+                        word -> {
+                            throw new AlreadyExistException("Word already exist in word list with id: " + wordId);
+                        },
+                        () -> {
+                            wordList.getWords().add(wordService.findWordById(wordId));
+                            wordListRepository.save(wordList);
+                        }
+                );
+        return WordListDto.from(wordList);
+    }
+
+    private WordList findWordListByName(String name) {
+        return wordListRepository.findByNameAndActiveTrue(name).orElseThrow(
+                () -> new WordListNotFoundException("Word list not found with name: " + name)
+        );
+    }
+
+    private WordList findWordListById(UUID id) {
         return wordListRepository.findByIdAndActiveTrue(id).orElseThrow(
-                () -> new WordListNotFoundException(id)
+                () -> new WordListNotFoundException("Word list not found with id: " + id)
         );
     }
 }

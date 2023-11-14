@@ -3,8 +3,8 @@ package englishtraining.dto;
 import englishtraining.model.Level;
 import englishtraining.model.Word;
 import englishtraining.model.WordStatus;
+
 import java.util.List;
-import java.util.Objects;
 import java.util.UUID;
 
 public record WordDto(
@@ -13,29 +13,15 @@ public record WordDto(
         String definition,
         Level level,
         WordStatus status,
-        List<String> exampleSentences,
-        UUID wordListId
+        List<String> exampleSentences
 ) {
     public static WordDto from(Word word) {
-         if (Objects.requireNonNull(word.getExampleSentences()).isEmpty())
-            return   new WordDto(
-                    word.getId(),
-                    word.getName(),
-                    word.getDefinition(),
-                    word.getLevel(),
-                    word.getStatus(),
-                    null,
-                    Objects.requireNonNull(word.getWordList()).getId());
-
          return new WordDto(
                  word.getId(),
                  word.getName(),
                  word.getDefinition(),
                  word.getLevel(),
                  word.getStatus(),
-                 word.getExampleSentences(),
-                 Objects.requireNonNull(word.getWordList()).getId());
-
-
+                 word.getExampleSentences() == null ? null : word.getExampleSentences());
     }
 }

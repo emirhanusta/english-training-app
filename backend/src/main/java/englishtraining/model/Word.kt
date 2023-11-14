@@ -12,7 +12,6 @@ data class Word @JvmOverloads constructor(
     @GeneratedValue
     val id : UUID? = null,
     @NonNull
-    @Column(unique = true)
     var name: String,
     @NonNull
     var definition: String,
@@ -21,9 +20,6 @@ data class Word @JvmOverloads constructor(
     var level: Level ?,
     @Enumerated(EnumType.ORDINAL)
     var status: WordStatus = WordStatus.LEARNING,
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "wordList_id")
-    var wordList: WordList?,
     var active: Boolean = true,
     @CreationTimestamp
     var createdAt: Date? = null,

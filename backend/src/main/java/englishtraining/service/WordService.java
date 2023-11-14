@@ -2,11 +2,11 @@ package englishtraining.service;
 
 import englishtraining.dto.WordDto;
 import englishtraining.dto.WordRequest;
+import englishtraining.exception.AlreadyExistException;
 import englishtraining.exception.InvalidValueException;
 import englishtraining.exception.WordNotFoundException;
 import englishtraining.model.Level;
 import englishtraining.model.Word;
-import englishtraining.model.WordList;
 import englishtraining.model.WordStatus;
 import englishtraining.repository.WordRepository;
 import org.springframework.data.domain.PageRequest;
@@ -20,36 +20,32 @@ import java.util.UUID;
 public class WordService {
 
     private final WordRepository wordRepository;
-    private final WordListService wordListService;
 
-    public WordService(WordRepository wordRepository, WordListService wordListService) {
+    public WordService(WordRepository wordRepository) {
         this.wordRepository = wordRepository;
-        this.wordListService = wordListService;
     }
 
     public WordDto getWord(UUID id) {
         return WordDto.from(findWordById(id));
     }
 
-    public List<WordDto> getAllWithFilter(int page, int size, String level, String status, String direction) {
-        Sort sort = Sort.by(directionControl(direction),"createdAt");
+    public List<WordDto> getAllWithFilter(int page, int size, String level, String status, String direction, String sortField) {
+        Sort sort = Sort.by(directionControl(direction),sortField);
         PageRequest pageRequest = PageRequest.of(page, size).withSort(sort);
         return wordRepository.findAllByActiveTrue(pageRequest).stream()
-                .filter(word -> level.equals("ALL") || levelControl(level).equals(word.getLevel()))
-                .filter(word -> status.equals("ALL") || statusControl(status).equals(word.getStatus()))
+                .filter(word -> level.equals("ALL") || levelControl(level).equals(word.getLevel())) // filter by level
+                .filter(word -> status.equals("ALL") || statusControl(status).equals(word.getStatus())) // filter by status
                 .map(WordDto::from)
                 .toList();
     }
 
     public WordDto createWord(WordRequest wordRequest) {
-        WordList list = wordListService.findWordListById(wordRequest.wordListId());
         existsWordByName(wordRequest.name());
         Word word = new Word(
                 wordRequest.name().toUpperCase(),
                 wordRequest.definition(),
                 wordRequest.exampleSentences(),
-                levelControl(wordRequest.level()),
-                list
+                levelControl(wordRequest.level())
         );
         return WordDto.from(wordRepository.save(word));
     }
@@ -64,23 +60,24 @@ public class WordService {
         word.setExampleSentences(wordRequest.exampleSentences());
         word.setLevel(levelControl(wordRequest.level()));
         word.setStatus(statusControl(wordRequest.status()));
-        word.setWordList(wordListService.findWordListById(wordRequest.wordListId()));
         return WordDto.from(wordRepository.save(word));
     }
 
     public void deleteWord(UUID id) {
-        wordRepository.deleteById(id);
+        Word word = findWordById(id);
+        word.setActive(false);
+        wordRepository.save(word);
     }
 
-    private Word findWordById(UUID id) {
+    protected Word findWordById(UUID id) {
         return wordRepository.findByIdAndActiveTrue(id).orElseThrow(
-                () -> new WordNotFoundException(id)
+                () -> new WordNotFoundException("Word not found with this id: " + id)
         );
     }
 
     private void existsWordByName(String name) {
         if (wordRepository.existsByNameAndActiveTrue(name.toUpperCase())) {
-            throw new InvalidValueException("Word already exists with this name: " + name);
+            throw new AlreadyExistException("Word already exists with this name: " + name);
         }
     }
 

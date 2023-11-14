@@ -13,7 +13,7 @@ data class WordList @JvmOverloads constructor(
     val id: UUID? = null,
     @NonNull
     var name: String,
-    @OneToMany(mappedBy = "wordList", targetEntity = Word::class, fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
+    @ManyToMany
     var words: List<Word>? = null,
     var active: Boolean = true,
     @CreationTimestamp
