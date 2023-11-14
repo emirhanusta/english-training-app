@@ -18,7 +18,7 @@ export default function AddWordList() {
   const onSubmit = async e => {
     e.preventDefault();
     await axios.post("http://localhost:8080/api/v1/word-list/save", wordList);
-    navigate("/");
+    navigate("/viewwordlists");
   };
 
   return (
@@ -26,7 +26,6 @@ export default function AddWordList() {
       <div className="row">
         <div className="col-md-12  border rounded p-4 mt-5 shadow">
           <h2 className="text-center m-4">Add Word List</h2>
-
           <form onSubmit={(e) => onSubmit(e)}>
             <div className="mb-3">
               <label htmlFor="Name" className="form-label">
@@ -41,10 +40,10 @@ export default function AddWordList() {
                 onChange={(e) => onInputChange(e)}
               />
             </div>
-            <button type="submit" className="btn btn-outline-primary">
+            <button type="submit" className="btn btn-outline-info">
               Add
             </button>
-            <Link className="btn btn-outline-danger mx-2" to="/">
+            <Link className="btn btn-outline-danger mx-2" to="/viewwordlists">
               Cancel
             </Link>
           </form>

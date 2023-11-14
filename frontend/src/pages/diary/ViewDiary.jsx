@@ -33,7 +33,7 @@ export default function ViewDiary() {
           <p class="card-text">{diary.content}</p>
           <hr />
           <Link
-                    className="btn btn btn-outline-primary mx-3"
+                    className="btn btn btn-outline-info mx-3"
                     to={`/editdiary/${diary.id}`}
                   >
                     <RiEdit2Line />
@@ -47,7 +47,7 @@ export default function ViewDiary() {
 
         </div>
       </div >
-        <Link className="btn btn-outline-primary mx-2 mt-2" to="/viewdiarys">
+        <Link className="btn btn-outline-danger mx-2 mt-2" to="/viewdiarys">
           Back
         </Link>
       </div>

@@ -13,6 +13,7 @@ import AddDiary from "./pages/diary/AddDiary";
 import ViewWord from "./pages/word/ViewWord";
 import EditWord from "./pages/word/EditWord";
 import AddWord from "./pages/word/AddWord";
+import WordList from "./pages/wordList/WordList";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route exact path="/" element={<Home />} />
+            <Route exact path="/viewwordlists" element={<WordList />} />
             <Route exact path="/addwordlist" element={<AddWordList />} />
             <Route exact path="/editWordList/:id" element={<EditWordList />} />
             <Route exact path="/viewWordList/:id" element={<ViewWordList />} />
@@ -31,7 +33,7 @@ function App() {
             <Route exact path="/viewwords" element={<Words/>} />
             <Route exact path="/viewworddetails/:id" element={<ViewWord/>} />
             <Route exact path="/editword/:id" element={<EditWord/>} />
-            <Route exact path="/addword/:id" element={<AddWord/>} />
+            <Route exact path="/addword/" element={<AddWord/>} />
           </Routes>
       </BrowserRouter>
     </div>

@@ -32,11 +32,7 @@ export default function ViewWordList() {
             <tr>
               <th scope="col">{wordList.name}</th>
               <th scope="col">Words</th>
-              <th scope="col">
-                <Link className="btn btn-outline-primary " to={`/addWord/${wordList.id}`}>
-                  Add Word
-                </Link>
-              </th>
+
             </tr>
           </thead>
           <tbody>
@@ -45,7 +41,7 @@ export default function ViewWordList() {
                 <th scope="row">{i + 1}</th>
                 <td>{word.name}</td>
                 <td>
-                <Link className="btn btn-outline-primary mx-2" to={`/viewworddetails/${word.id}`}>
+                <Link className="btn btn-outline-info mx-2" to={`/viewworddetails/${word.id}`}>
                  View
                 </Link>
                 </td>
@@ -53,7 +49,7 @@ export default function ViewWordList() {
             ))}
           </tbody>
         </table>
-        <Link className="btn btn-outline-primary mx-2" to="/">
+        <Link className="btn btn-outline-danger mx-2" to="/viewwordlists">
           Back
         </Link>
       </div>

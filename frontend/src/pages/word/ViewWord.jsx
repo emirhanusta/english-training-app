@@ -5,6 +5,7 @@ import { RiDeleteBin6Line, RiEdit2Line } from 'react-icons/ri';
 
 export default function ViewWord() {
     let navigate = useNavigate();
+    const [name, setName] = useState("");
     const [word, setWord] = useState({
         name: "",
         definition: "",
@@ -13,6 +14,20 @@ export default function ViewWord() {
         exampleSentences: [],
         wordListsId: ""
     });    
+
+    const [inputVisible, setInputVisible] = useState(false);
+    const [inputValue, setInputValue] = useState('');
+  
+    const handleAddField = () => {
+      setInputVisible(true);
+    };
+
+    const handleSubmit = () => {
+        axios.put(`http://localhost:8080/api/v1/word-list/addWord/${inputValue}/${word.id}`);
+        setInputVisible(false);
+        alert("Word added to the list");
+      };
+
     const { id } = useParams();
 
     const loadWord = async () => {
@@ -26,32 +41,50 @@ export default function ViewWord() {
     
     const deleteWord = async id => {
         await axios.delete(`http://localhost:8080/api/v1/word/delete/${id}`);
-        navigate(`/viewWordList/${word.wordListId}`);
+        navigate(`/`);
     }
 
   return (
     <div className="container">
         <div className="card border-secondary mb-3 mt-3" >
         <div className="card-header text-danger fs-3">{word.name}</div>
+        <p className="card-text text-info fs-5 mb-1 mt-2"> {word.level} -- {word.status}</p>
             <div className="card-body text-success">
-            <h5 className="card-title fs-4">{word.definition}</h5>
+            <h5 className="card-title fs-4 mb-3">{word.definition}</h5>
             <ul className="list-group">
-                <p className="card-text text-warning fs-5"> {word.level}</p>
-                <p className="card-text text-info fs-5"> {word.status}</p>
-                <p className="card-text text-dark fs-5 mb-4 mt-3">Example Sentences:</p>
+                <p className="card-text text-dark fs-5 mb-4 mt-1">Example Sentences:</p>
                 {word.exampleSentences.map((sentence, i) => ( 
                     <li className="list-group-item blockquote-footer " key={i}>{sentence}</li>
                 ))}
             </ul>
+            <Link className="btn btn-outline-info mx-2" to={`/editword/${word.id}`}>
+                <RiEdit2Line />
+            </Link>
+            <button className="btn btn-outline-info mx-2" onClick={handleAddField}>
+                Add Word List
+            </button>
+
             <button className="btn btn-outline-danger mx-2" onClick={() => deleteWord(word.id)}>
                 <RiDeleteBin6Line />
             </button>
-            <Link className="btn btn-outline-primary mx-2" to={`/editword/${word.id}`}>
-                <RiEdit2Line />
-            </Link>
+
+            {inputVisible && (
+                        <div className="mt-3">
+                        <input
+                          type="text"
+                          className="form-control"
+                          placeholder="Input Alanı"
+                          value={inputValue}
+                          onChange={(e) => setInputValue(e.target.value)}
+                        />
+                        <button className="btn btn-info mt-2" onClick={handleSubmit}>
+                          Add
+                        </button>
+                      </div>
+            )}
         </div>
         </div>
-        <Link className="btn btn-outline-primary mx-2 mt-2" to={`/viewWordList/${word.wordListId}`}>
+        <Link className="btn btn-outline-danger mx-2 mt-2" to={`/`}>
             Back
         </Link>
     </div>

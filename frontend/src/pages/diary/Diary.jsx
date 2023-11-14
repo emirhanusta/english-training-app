@@ -42,7 +42,7 @@ export default function Diary() {
                   </td>
                   <td className="col d-flex justify-content-end">
                     <Link 
-                      className="btn btn-secondary btn-block"
+                      className="btn btn-info btn-block"
                       to="/adddiary"
                     >
                      Add New
@@ -59,7 +59,7 @@ export default function Diary() {
                 <td></td>
                 <td className="col d-flex justify-content-end">
                   <Link
-                    className="btn btn btn-secondary mx-3"
+                    className="btn btn btn-info mx-3"
                     to={`/viewdiarydetails/${diary.id}`}
                   >
                     View
@@ -89,7 +89,7 @@ export default function Diary() {
             </li>
           </ul>
         </nav>
-          <Link className="btn btn-outline-primary mx-2" to="/">
+          <Link className="btn btn-outline-danger mx-2" to="/">
             Back
           </Link>
       </div>

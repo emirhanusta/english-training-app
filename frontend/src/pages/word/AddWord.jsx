@@ -29,7 +29,7 @@ export default function AddWord() {
       try {
         await axios.post("http://localhost:8080/api/v1/word/save", word);
 
-        navigate(`/viewWordList/${word.wordListId}`);
+        navigate(`/`);
       
       } catch (error) {
 
@@ -74,7 +74,7 @@ export default function AddWord() {
                 Level
               </label>
               <Dropdown>
-                <Dropdown.Toggle variant="outline-primary" id="dropdown-basic">
+                <Dropdown.Toggle variant="outline-info" id="dropdown-basic">
                   {word.level}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
@@ -82,6 +82,8 @@ export default function AddWord() {
                   <Dropdown.Item onClick={() => setWord({ ...word, level: "A2" })}>A2</Dropdown.Item>
                   <Dropdown.Item onClick={() => setWord({ ...word, level: "B1" })}>B1</Dropdown.Item>
                   <Dropdown.Item onClick={() => setWord({ ...word, level: "B2" })}>B2</Dropdown.Item>
+                  <Dropdown.Item onClick={() => setWord({ ...word, level: "C1" })}>C1</Dropdown.Item>
+                  <Dropdown.Item onClick={() => setWord({ ...word, level: "C2" })}>C2</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </div>
@@ -93,15 +95,15 @@ export default function AddWord() {
                 className="form-control"
                 id="exampleSentences"
                 name="exampleSentences"
-                value={word.exampleSentences.join('\n')} // Cümleleri yeni satırlarla birleştir
+                value={word.exampleSentences.join('\n')} 
                 onChange={onExampleSentencesChange}
               />
             </div>
-            <button type="submit" className="btn btn-primary btn-block">
+            <button type="submit" className="btn btn-info btn-block">
               {console.log(word)}
               Add
             </button>
-            <Link className="btn btn-outline-danger mx-2" to={`/viewWordList/${id}`}>
+            <Link className="btn btn-outline-danger mx-2" to={`/`}>
               Cancel
             </Link>
           </form>

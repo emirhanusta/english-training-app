@@ -51,7 +51,7 @@ export default function WordList() {
 
                   <td className="col d-flex justify-content-end">
                     <Link 
-                      className="btn btn-secondary btn-block"
+                      className="btn btn-info btn-block"
                       to="/addWordList"
                     >
                      Add New
@@ -67,13 +67,13 @@ export default function WordList() {
                   </td>
                 <td className="col d-flex justify-content-end">
                   <Link
-                    className="btn btn btn-secondary mx-3"
+                    className="btn btn btn-info mx-3"
                     to={`/viewWordList/${wordList.id}`}
                   >
                     View
                   </Link>
                   <Link
-                    className="btn btn btn-outline-primary mx-3"
+                    className="btn btn btn-outline-info mx-3"
                     to={`/editWordList/${wordList.id}`}
                   >
                     <RiEdit2Line />
@@ -108,6 +108,9 @@ export default function WordList() {
               </button>
             </li>
           </ul>
+          <Link className="btn btn-outline-danger mx-2" to="/">
+            Back
+          </Link>
         </nav>
       </div>
     </div>

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
-export default function EditwordList() {
+export default function EditWordList() {
     let navigate = useNavigate();
     const { id } = useParams();
     const [wordList, setWordList] = useState({
@@ -22,7 +22,7 @@ export default function EditwordList() {
     const onSubmit = async e => {
         e.preventDefault();
         await axios.put(`http://localhost:8080/api/v1/word-list/update/${id}`, wordList);
-        navigate("/");
+        navigate("/viewwordlists");
     }
 
     const loadWordList = async () => {
@@ -54,7 +54,7 @@ export default function EditwordList() {
             <button type="submit" className="btn btn-outline-primary">
               Update
             </button>
-            <Link className="btn btn-outline-danger mx-2" to="/">
+            <Link className="btn btn-outline-danger mx-2" to="/viewwordlists">
               Cancel
             </Link>
           </form>

@@ -85,7 +85,7 @@ export default function EditWord() {
                 Level
               </label>
               <Dropdown>
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                <Dropdown.Toggle variant="info" id="dropdown-basic">
                   {word.level}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
@@ -103,7 +103,7 @@ export default function EditWord() {
                 Status
               </label>
               <Dropdown>
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                <Dropdown.Toggle variant="info" id="dropdown-basic">
                   {word.status}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
@@ -126,12 +126,12 @@ export default function EditWord() {
                 onChange={onExampleSentencesChange}
               />
             </div>
-            <button type="submit" className="btn btn-primary btn-block">
+            <button type="submit" className="btn btn-outline-info btn-block">
               {console.log(word)}
               Update
             </button>
           </form>
-          <Link className="btn btn-outline-primary mx-2 mt-2" to={`/viewWordList/${word.wordListId}`}>
+          <Link className="btn btn-outline-danger mx-2 mt-2" to={`/viewworddetails/${id}`}>
             Back
           </Link>
         </div>
