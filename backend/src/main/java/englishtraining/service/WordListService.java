@@ -53,7 +53,6 @@ public class WordListService {
 
     public void deleteWordList(UUID id) {
         WordList wordList = findWordListById(id);
-        Objects.requireNonNull(wordList.getWords()).forEach(word -> word.setActive(false));
         wordList.setActive(false);
         wordListRepository.save(wordList);
     }

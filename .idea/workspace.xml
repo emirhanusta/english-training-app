@@ -4,22 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3aef9cd-46e3-4b60-af47-7627ca6f1a5d" name="Changes" comment="Refactor: Changed the relationship between word and wordlist models and added new endpoint">
+    <list default="true" id="b3aef9cd-46e3-4b60-af47-7627ca6f1a5d" name="Changes" comment="Refactor: The contents of the pages have been changed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/diary/AddDiary.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/diary/AddDiary.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/diary/Diary.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/diary/Diary.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/diary/EditDiary.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/diary/EditDiary.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/diary/ViewDiary.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/diary/ViewDiary.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/home/Home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/word/AddWord.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/word/AddWord.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/word/EditWord.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/word/EditWord.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/word/ViewWord.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/word/ViewWord.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/word/Words.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/word/Words.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/wordList/AddWordList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/wordList/AddWordList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/wordList/EditWordList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/wordList/EditWordList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/wordList/ViewWordList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/wordList/ViewWordList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/wordList/WordList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/wordList/WordList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordListService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699998007089</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Refactor: The contents of the pages have been changed">
+      <created>1699998767769</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699998767769</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,7 +192,8 @@
     <MESSAGE value="Feature: added UI" />
     <MESSAGE value="fixup! Feature: added UI" />
     <MESSAGE value="Refactor: Changed the relationship between word and wordlist models and added new endpoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor: Changed the relationship between word and wordlist models and added new endpoint" />
+    <MESSAGE value="Refactor: The contents of the pages have been changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor: The contents of the pages have been changed" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
