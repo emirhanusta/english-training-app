@@ -16,13 +16,16 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.UUID;
 
+
 @Service
 public class WordService {
 
     private final WordRepository wordRepository;
+    private final ESWordService esWordService;
 
-    public WordService(WordRepository wordRepository) {
+    public WordService(WordRepository wordRepository,  ESWordService esWordService) {
         this.wordRepository = wordRepository;
+        this.esWordService = esWordService;
     }
 
     public WordDto getWord(UUID id) {
@@ -47,7 +50,9 @@ public class WordService {
                 wordRequest.exampleSentences(),
                 levelControl(wordRequest.level())
         );
-        return WordDto.from(wordRepository.save(word));
+        wordRepository.save(word);
+        esWordService.saveESWord(word);
+        return WordDto.from(word);
     }
 
     public WordDto updateWord(UUID id, WordRequest wordRequest) {
@@ -60,12 +65,15 @@ public class WordService {
         word.setExampleSentences(wordRequest.exampleSentences());
         word.setLevel(levelControl(wordRequest.level()));
         word.setStatus(statusControl(wordRequest.status()));
-        return WordDto.from(wordRepository.save(word));
+        wordRepository.save(word);
+        esWordService.updateESWord(word);
+        return WordDto.from(word);
     }
 
     public void deleteWord(UUID id) {
         Word word = findWordById(id);
         word.setActive(false);
+        esWordService.deleteESWord(id);
         wordRepository.save(word);
     }
 
