@@ -8,17 +8,24 @@ import englishtraining.exception.WordNotFoundException;
 import englishtraining.model.Level;
 import englishtraining.model.Word;
 import englishtraining.model.WordStatus;
+import englishtraining.model.es.ESWord;
 import englishtraining.repository.WordRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 
 @Service
 public class WordService {
+
+    private final Logger logger = LoggerFactory.getLogger(WordService.class);
 
     private final WordRepository wordRepository;
     private final ESWordService esWordService;
@@ -40,6 +47,23 @@ public class WordService {
                 .filter(word -> status.equals("ALL") || statusControl(status).equals(word.getStatus())) // filter by status
                 .map(WordDto::from)
                 .toList();
+    }
+
+    public Set<WordDto> findSuggestedWordsWithName(String name) {
+        Set<ESWord> words = esWordService.findSuggestedWordsWithName(name);
+        logger.info("words: {}", words);
+        return words.stream()
+                .map(
+                        esWord -> new WordDto(
+                                esWord.getId(),
+                                esWord.getName(),
+                                esWord.getDefinition(),
+                                esWord.getLevel(),
+                                esWord.getStatus(),
+                                esWord.getExampleSentences()
+                        )
+                )
+                .collect(Collectors.toSet());
     }
 
     public WordDto createWord(WordRequest wordRequest) {

@@ -1,27 +1,27 @@
 package englishtraining.dto;
 
-import englishtraining.model.Level;
 import englishtraining.model.Word;
-import englishtraining.model.WordStatus;
 
 import java.util.List;
-import java.util.UUID;
+import java.util.Objects;
+
+import static java.lang.String.valueOf;
 
 public record WordDto(
-        UUID id,
+        String id,
         String name,
         String definition,
-        Level level,
-        WordStatus status,
+        String level,
+        String status,
         List<String> exampleSentences
 ) {
     public static WordDto from(Word word) {
          return new WordDto(
-                 word.getId(),
+                 Objects.requireNonNull(word.getId()).toString(),
                  word.getName(),
                  word.getDefinition(),
-                 word.getLevel(),
-                 word.getStatus(),
+                 valueOf(word.getLevel()),
+                 valueOf(word.getStatus()),
                  word.getExampleSentences() == null ? null : word.getExampleSentences());
     }
 }

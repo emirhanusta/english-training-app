@@ -8,6 +8,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @CrossOrigin
@@ -31,6 +32,10 @@ public class WordController {
         return ResponseEntity.ok(wordService.getWord(id));
     }
 
+    @GetMapping("/searchWithName/{name}")
+    public ResponseEntity<Set<WordDto>> findSuggestedWordsWithName(@PathVariable String name) {
+        return ResponseEntity.ok(wordService.findSuggestedWordsWithName(name));
+    }
 
     @GetMapping("/getAllWithFilter")
     public ResponseEntity<List<WordDto>> getAllWithFilter (@RequestParam(defaultValue = "desc") String direction,
