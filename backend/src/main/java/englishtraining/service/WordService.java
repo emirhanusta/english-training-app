@@ -51,7 +51,7 @@ public class WordService {
 
     public Set<WordDto> findSuggestedWordsWithName(String name) {
         Set<ESWord> words = esWordService.findSuggestedWordsWithName(name);
-        logger.info("words: {}", words);
+        logger.info("Suggested words listed with name: " + name);
         return words.stream()
                 .map(
                         esWord -> new WordDto(

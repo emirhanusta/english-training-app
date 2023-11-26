@@ -14,10 +14,10 @@ data class ESWord @JvmOverloads constructor(
     @Id
     val id: String? = null,
     @Field(name = "name", type = FieldType.Text, analyzer = "custom_index", searchAnalyzer = "custom_search")
-    var name: String,
-    var definition: String,
-    var exampleSentences: List<String>?,
-    var level: String?,
-    var status: String
+    var name: String? = null,
+    var definition: String? = null,
+    var exampleSentences: List<String>? = null,
+    var level: String? = null,
+    var status: String? = null
 )
 
