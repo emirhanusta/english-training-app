@@ -1,7 +1,7 @@
 package englishtraining.service;
 
-import englishtraining.dto.WordListDto;
-import englishtraining.dto.WordListRequest;
+import englishtraining.dto.response.WordListDto;
+import englishtraining.dto.request.WordListRequest;
 import englishtraining.exception.AlreadyExistException;
 import englishtraining.exception.WordListNotFoundException;
 import englishtraining.model.WordList;
@@ -32,7 +32,7 @@ public class WordListService {
 
     public List<WordListDto> getAllWordLists(int page, int size) {
         PageRequest pageRequest = PageRequest.of(page, size);
-        return wordListRepository.findAllByActiveTrue(pageRequest)
+        return wordListRepository.findAll(pageRequest)
                 .stream()
                 .map(WordListDto::from)
                 .toList();
@@ -52,9 +52,7 @@ public class WordListService {
     }
 
     public void deleteWordList(UUID id) {
-        WordList wordList = findWordListById(id);
-        wordList.setActive(false);
-        wordListRepository.save(wordList);
+        wordListRepository.delete(findWordListById(id));
     }
 
     public WordListDto addWordToWordList(String name, UUID wordId) {
@@ -76,13 +74,13 @@ public class WordListService {
     }
 
     private WordList findWordListByName(String name) {
-        return wordListRepository.findByNameAndActiveTrue(name).orElseThrow(
+        return wordListRepository.findByName(name).orElseThrow(
                 () -> new WordListNotFoundException("Word list not found with name: " + name)
         );
     }
 
     private WordList findWordListById(UUID id) {
-        return wordListRepository.findByIdAndActiveTrue(id).orElseThrow(
+        return wordListRepository.findById(id).orElseThrow(
                 () -> new WordListNotFoundException("Word list not found with id: " + id)
         );
     }

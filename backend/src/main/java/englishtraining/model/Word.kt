@@ -1,5 +1,7 @@
 package englishtraining.model
 
+import englishtraining.model.enums.Level
+import englishtraining.model.enums.WordStatus
 import jakarta.persistence.*
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
@@ -17,7 +19,7 @@ data class Word @JvmOverloads constructor(
     var definition: String,
     var exampleSentences: List<String>?,
     @Enumerated(EnumType.ORDINAL)
-    var level: Level ?,
+    var level: Level?,
     @Enumerated(EnumType.ORDINAL)
     var status: WordStatus = WordStatus.LEARNING,
     var active: Boolean = true,

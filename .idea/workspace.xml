@@ -5,9 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3aef9cd-46e3-4b60-af47-7627ca6f1a5d" name="Changes" comment="Feature: added search method using elasticsearch">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/config/BeanConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/config/SecuriyConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/request/LoginRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/request/SignUpRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/response/TokenDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/response/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/exception/UserNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/User.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/enums/Role.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/security/JWTAccessDeniedHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/security/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/security/JwtFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/TokenService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/UserDetailsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/es/ESWord.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/es/ESWord.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/DiaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/DiaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/WordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/WordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/WordListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/WordListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/DiaryDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/response/DiaryDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/DiaryRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/request/DiaryRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/WordDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/response/WordDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/WordListDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/response/WordListDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/WordListRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/request/WordListRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/WordRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/request/WordRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/Level.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/enums/Level.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/Word.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/Word.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/WordList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/WordList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/WordStatus.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/enums/WordStatus.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/repository/WordListRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/repository/WordListRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/DiaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/DiaryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordListService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/word/AddWord.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/word/AddWord.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,12 +54,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Record" />
         <option value="Enum" />
-        <option value="Kotlin Enum" />
         <option value="Kotlin Class" />
         <option value="Kotlin Data Class" />
         <option value="Interface" />
+        <option value="Kotlin Enum" />
+        <option value="Record" />
         <option value="Class" />
       </list>
     </option>
@@ -70,9 +106,13 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="englishtraining.repository" />
+      <recent name="englishtraining.dto.response" />
+      <recent name="englishtraining.service" />
       <recent name="englishtraining.exception" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="englishtraining.model.enums" />
       <recent name="englishtraining.model.es" />
       <recent name="englishtraining.model" />
     </key>
@@ -191,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700990876118</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fixup! Feature: added search method using elasticsearch">
+      <created>1701001964591</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1701001964592</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -218,7 +265,8 @@
     <MESSAGE value="Refactor: The contents of the pages have been changed" />
     <MESSAGE value="Feature: elasticsearch added" />
     <MESSAGE value="Feature: added search method using elasticsearch" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feature: added search method using elasticsearch" />
+    <MESSAGE value="fixup! Feature: added search method using elasticsearch" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixup! Feature: added search method using elasticsearch" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

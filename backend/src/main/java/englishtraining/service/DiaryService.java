@@ -1,7 +1,7 @@
 package englishtraining.service;
 
-import englishtraining.dto.DiaryDto;
-import englishtraining.dto.DiaryRequest;
+import englishtraining.dto.response.DiaryDto;
+import englishtraining.dto.request.DiaryRequest;
 import englishtraining.exception.DiaryNotFoundException;
 import englishtraining.model.Diary;
 import englishtraining.repository.DiaryRepository;

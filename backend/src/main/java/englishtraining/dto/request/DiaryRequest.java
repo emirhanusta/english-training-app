@@ -1,4 +1,4 @@
-package englishtraining.dto;
+package englishtraining.dto.request;
 
 import jakarta.annotation.Nonnull;
 

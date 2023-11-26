@@ -1,7 +1,7 @@
 package englishtraining.controller;
 
-import englishtraining.dto.WordListDto;
-import englishtraining.dto.WordListRequest;
+import englishtraining.dto.response.WordListDto;
+import englishtraining.dto.request.WordListRequest;
 import englishtraining.service.WordListService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;

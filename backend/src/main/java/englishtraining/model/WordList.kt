@@ -15,7 +15,6 @@ data class WordList @JvmOverloads constructor(
     var name: String,
     @ManyToMany
     var words: List<Word>? = null,
-    var active: Boolean = true,
     @CreationTimestamp
     var createdAt: Date? = null,
     @UpdateTimestamp

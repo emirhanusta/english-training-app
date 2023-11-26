@@ -1,4 +1,4 @@
-package englishtraining.dto;
+package englishtraining.dto.response;
 
 import englishtraining.model.Diary;
 

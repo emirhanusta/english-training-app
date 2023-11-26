@@ -1,13 +1,13 @@
 package englishtraining.service;
 
-import englishtraining.dto.WordDto;
-import englishtraining.dto.WordRequest;
+import englishtraining.dto.response.WordDto;
+import englishtraining.dto.request.WordRequest;
 import englishtraining.exception.AlreadyExistException;
 import englishtraining.exception.InvalidValueException;
 import englishtraining.exception.WordNotFoundException;
-import englishtraining.model.Level;
+import englishtraining.model.enums.Level;
 import englishtraining.model.Word;
-import englishtraining.model.WordStatus;
+import englishtraining.model.enums.WordStatus;
 import englishtraining.model.es.ESWord;
 import englishtraining.repository.WordRepository;
 import org.slf4j.Logger;
