@@ -7,7 +7,6 @@ import englishtraining.dto.response.UserDto;
 import englishtraining.exception.AlreadyExistException;
 import englishtraining.model.User;
 import englishtraining.model.enums.Role;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -57,7 +56,6 @@ public class AuthService {
         }
 
         User user = new User(
-                null,
                 signUpRequest.username(),
                 encoder.encode(signUpRequest.password()),
                 signUpRequest.email(),

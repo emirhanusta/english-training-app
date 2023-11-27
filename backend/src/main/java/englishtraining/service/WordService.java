@@ -84,7 +84,7 @@ public class WordService {
             existsWordByName(wordRequest.name());
         }
         Word word = findWordById(id);
-        word.setName(wordRequest.name());
+        word.setName(wordRequest.name().toUpperCase());
         word.setDefinition(wordRequest.definition());
         word.setExampleSentences(wordRequest.exampleSentences());
         word.setLevel(levelControl(wordRequest.level()));
