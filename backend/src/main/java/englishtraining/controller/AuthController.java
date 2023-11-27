@@ -6,10 +6,10 @@ import englishtraining.dto.request.SignUpRequest;
 import englishtraining.dto.response.TokenDto;
 import englishtraining.dto.response.UserDto;
 import englishtraining.service.AuthService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/v1/auth")
 public class AuthController {
@@ -30,10 +30,5 @@ public class AuthController {
         return ResponseEntity.ok(authService.signup(signUpRequest));
     }
 
-    @GetMapping("/me")
-    public ResponseEntity<UserDto> getUserById() {
-        return ResponseEntity.status(HttpStatus.OK)
-                .body(authService.getAuthenticatedUser());
-    }
 }
 

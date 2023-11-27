@@ -5,6 +5,8 @@ import jakarta.annotation.Nonnull;
 public record DiaryRequest(
         @Nonnull
         String title,
-        String content
+        String content,
+        @Nonnull
+        String userId
 ) {
 }

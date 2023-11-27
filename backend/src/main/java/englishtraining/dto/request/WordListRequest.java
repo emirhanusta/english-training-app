@@ -4,6 +4,8 @@ import jakarta.annotation.Nonnull;
 
 public record WordListRequest(
         @Nonnull
-        String name
+        String name,
+        @Nonnull
+        String userId
 ) {
 }

@@ -67,7 +67,7 @@ public class WordService {
     }
 
     public WordDto createWord(WordRequest wordRequest) {
-        existsWordByName(wordRequest.name());
+        checkIfWordAlreadyExists(wordRequest.name());
         Word word = new Word(
                 wordRequest.name().toUpperCase(),
                 wordRequest.definition(),
@@ -81,7 +81,7 @@ public class WordService {
 
     public WordDto updateWord(UUID id, WordRequest wordRequest) {
         if (!wordRequest.name().equals(findWordById(id).getName())) {
-            existsWordByName(wordRequest.name());
+            checkIfWordAlreadyExists(wordRequest.name());
         }
         Word word = findWordById(id);
         word.setName(wordRequest.name().toUpperCase());
@@ -107,7 +107,7 @@ public class WordService {
         );
     }
 
-    private void existsWordByName(String name) {
+    private void checkIfWordAlreadyExists(String name) {
         if (wordRepository.existsByNameAndActiveTrue(name.toUpperCase())) {
             throw new AlreadyExistException("Word already exists with this name: " + name);
         }

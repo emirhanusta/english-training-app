@@ -14,9 +14,11 @@ import java.util.UUID;
 @Service
 public class DiaryService {
     private final DiaryRepository diaryRepository;
+    private final UserService userService;
 
-    public DiaryService(DiaryRepository diaryRepository) {
+    public DiaryService(DiaryRepository diaryRepository, UserService userService) {
         this.diaryRepository = diaryRepository;
+        this.userService = userService;
     }
 
     public DiaryDto getDiary(UUID id) {
@@ -32,7 +34,8 @@ public class DiaryService {
     public DiaryDto createDiary(DiaryRequest diaryRequest) {
         Diary diary = new Diary(
                 diaryRequest.title(),
-                diaryRequest.content()
+                diaryRequest.content(),
+                userService.findUserById(UUID.fromString(diaryRequest.userId()))
         );
         return DiaryDto.from(diaryRepository.save(diary));
     }

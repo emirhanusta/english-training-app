@@ -19,10 +19,11 @@ public class WordListService {
 
     private final WordListRepository wordListRepository;
     private final WordService wordService;
-
-    public WordListService(WordListRepository wordListRepository, WordService wordService) {
+    private final UserService userService;
+    public WordListService(WordListRepository wordListRepository, WordService wordService, UserService userService) {
         this.wordListRepository = wordListRepository;
         this.wordService = wordService;
+        this.userService = userService;
     }
 
     public WordListDto getWordList(UUID id) {
@@ -39,8 +40,10 @@ public class WordListService {
     }
 
     public WordListDto createWordList(WordListRequest wordListRequest) {
+        checkIfWordListAlreadyExists(wordListRequest.name());
         WordList wordList = new WordList(
-                wordListRequest.name()
+                wordListRequest.name(),
+                userService.findUserById(UUID.fromString(wordListRequest.userId()))
         );
         return WordListDto.from(wordListRepository.save(wordList));
     }
@@ -82,6 +85,14 @@ public class WordListService {
     private WordList findWordListById(UUID id) {
         return wordListRepository.findById(id).orElseThrow(
                 () -> new WordListNotFoundException("Word list not found with id: " + id)
+        );
+    }
+
+    private void checkIfWordListAlreadyExists(String name) {
+        wordListRepository.findByName(name).ifPresent(
+                wordList -> {
+                    throw new AlreadyExistException("Word list already exist with name: " + name);
+                }
         );
     }
 }
