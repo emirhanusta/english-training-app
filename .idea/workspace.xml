@@ -4,22 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3aef9cd-46e3-4b60-af47-7627ca6f1a5d" name="Changes" comment="Feature: baseEntity added for model classes">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/UserController.java" afterDir="false" />
+    <list default="true" id="b3aef9cd-46e3-4b60-af47-7627ca6f1a5d" name="Changes" comment="Refactor: updated the relationship between model classes and added UserController">
+      <change afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/config/SecuriyConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/config/SecuriyConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/request/DiaryRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/request/DiaryRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/request/WordListRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/request/WordListRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/response/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/response/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/Diary.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/Diary.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/Word.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/Word.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/WordList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/WordList.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/DiaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/DiaryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/TokenService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordListService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/word/AddWord.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/word/AddWord.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +86,7 @@
       <recent name="englishtraining.model" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.EnglishTrainingApplication">
     <configuration name="EnglishTrainingApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="englishtraining.EnglishTrainingApplication" />
       <module name="english-training-backend" />
@@ -107,9 +101,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="backend.english-training: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="english-training" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="backend/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.EnglishTrainingApplication" />
+        <item itemvalue="Docker.backend.english-training: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -227,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701045919665</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Refactor: updated the relationship between model classes and added UserController">
+      <created>1701118794885</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1701118794885</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -257,7 +278,8 @@
     <MESSAGE value="fixup! Feature: added search method using elasticsearch" />
     <MESSAGE value="Feature: spring security added" />
     <MESSAGE value="Feature: baseEntity added for model classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feature: baseEntity added for model classes" />
+    <MESSAGE value="Refactor: updated the relationship between model classes and added UserController" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor: updated the relationship between model classes and added UserController" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

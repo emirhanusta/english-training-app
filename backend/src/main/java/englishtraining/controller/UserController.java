@@ -13,16 +13,14 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 public class UserController {
     private final UserService userService;
-    private final AuthService authService;
-    public UserController(UserService userService, AuthService authService) {
+    public UserController(UserService userService) {
         this.userService = userService;
-        this.authService = authService;
     }
 
     @GetMapping("/me")
     public ResponseEntity<UserDto> getUserById() {
         return ResponseEntity.status(HttpStatus.OK)
-                .body(authService.getAuthenticatedUser());
+                .body(userService.getAuthenticatedUser());
     }
 
     @PutMapping("/update")

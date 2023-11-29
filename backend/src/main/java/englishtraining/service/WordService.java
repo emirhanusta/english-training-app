@@ -97,6 +97,7 @@ public class WordService {
     public void deleteWord(UUID id) {
         Word word = findWordById(id);
         word.setActive(false);
+        word.setName(word.getName() + " (deleted)");
         esWordService.deleteESWord(id);
         wordRepository.save(word);
     }

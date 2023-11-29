@@ -9,7 +9,6 @@ import java.util.*
 @Entity
 data class Word @JvmOverloads constructor(
     @NonNull
-    @Column(unique = true)
     var name: String,
     @NonNull
     var definition: String,
