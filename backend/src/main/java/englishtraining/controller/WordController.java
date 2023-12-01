@@ -2,6 +2,7 @@ package englishtraining.controller;
 
 import englishtraining.dto.response.WordDto;
 import englishtraining.dto.request.WordRequest;
+import englishtraining.service.ESWordService;
 import englishtraining.service.WordService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -17,9 +18,11 @@ import java.util.UUID;
 public class WordController {
 
     private final WordService wordService;
+    private final ESWordService esWordService;
 
-    public WordController(WordService wordService) {
+    public WordController(WordService wordService, ESWordService esWordService) {
         this.wordService = wordService;
+        this.esWordService = esWordService;
     }
 
     @PostMapping("/save")
@@ -33,8 +36,8 @@ public class WordController {
     }
 
     @GetMapping("/searchWithName/{name}")
-    public ResponseEntity<Set<WordDto>> findSuggestedWordsWithName(@PathVariable String name) {
-        return ResponseEntity.ok(wordService.findSuggestedWordsWithName(name));
+    public ResponseEntity<List<WordDto>> findSuggestedWordsWithName(@PathVariable String name) {
+        return ResponseEntity.ok(esWordService.findSuggestedWordsWithName(name));
     }
 
     @GetMapping("/getAllWithFilter")

@@ -3,12 +3,12 @@ package englishtraining.dto.response;
 import englishtraining.model.Word;
 
 import java.util.List;
-import java.util.Objects;
+import java.util.UUID;
 
 import static java.lang.String.valueOf;
 
 public record WordDto(
-        String id,
+        UUID id,
         String name,
         String definition,
         String level,
@@ -17,7 +17,7 @@ public record WordDto(
 ) {
     public static WordDto from(Word word) {
          return new WordDto(
-                 Objects.requireNonNull(word.getId()).toString(),
+                 word.getId(),
                  word.getName(),
                  word.getDefinition(),
                  valueOf(word.getLevel()),

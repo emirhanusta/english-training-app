@@ -1,6 +1,7 @@
 package englishtraining.service;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import englishtraining.dto.response.WordDto;
 import englishtraining.model.Word;
 import englishtraining.model.es.ESWord;
 import englishtraining.repository.ESWordRepository;
@@ -12,8 +13,8 @@ import org.springframework.stereotype.Service;
 
 import co.elastic.clients.elasticsearch._types.query_dsl.Query;
 import java.io.IOException;
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -30,17 +31,25 @@ public class ESWordService {
         this.elasticsearchClient = elasticsearchClient;
     }
 
-    protected Set<ESWord> findSuggestedWordsWithName(String name) {
+    public List<WordDto> findSuggestedWordsWithName(String name) {
         Query autoSuggestQuery = ESUtil.buildAutoSuggestQuery(name);
         logger.info("Elasticsearch query: "+ autoSuggestQuery.toString());
-
         try {
             return elasticsearchClient.search(q -> q.index("words_index").query(autoSuggestQuery), ESWord.class)
                     .hits()
                     .hits()
                     .stream()
                     .map(Hit::source)
-                    .collect(Collectors.toSet());
+                    .map(
+                            esWord -> new WordDto(
+                                    UUID.fromString(Objects.requireNonNull(esWord.getId())),
+                                    esWord.getName(),
+                                    esWord.getDefinition(),
+                                    esWord.getLevel(),
+                                    esWord.getStatus(),
+                                    esWord.getExampleSentences()
+                            ))
+                    .collect(Collectors.toList());
         } catch (IOException e) {
             throw new RuntimeException(e.getMessage());
         }

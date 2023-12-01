@@ -4,21 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3aef9cd-46e3-4b60-af47-7627ca6f1a5d" name="Changes" comment="Refactor: updated the relationship between model classes and added UserController">
-      <change afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
+    <list default="true" id="b3aef9cd-46e3-4b60-af47-7627ca6f1a5d" name="Changes" comment="Fix: fixed some bugs">
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/englishtraining/service/WordServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/Word.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/Word.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/TokenService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/WordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/WordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/response/WordDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/response/WordDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/ESWordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/ESWordService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="0" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="C:\Users\emirh\Desktop\projects\english-training\backend\htmlReport" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -30,6 +33,7 @@
         <option value="Record" />
         <option value="Kotlin Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -64,15 +68,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/emirh/Desktop/projects/english-training&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ToolWindowCoverage.ShowToolbar": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "C:/Users/emirh/Desktop/projects/english-training",
+    "settings.editor.selected.configurable": "reference.idesettings.debugger.capture"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="englishtraining.repository" />
@@ -80,17 +87,22 @@
       <recent name="englishtraining.service" />
       <recent name="englishtraining.exception" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="englishtraining.model.enums" />
       <recent name="englishtraining.model.es" />
       <recent name="englishtraining.model" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="englishtraining.service" />
     </key>
   </component>
   <component name="RunManager" selected="Application.EnglishTrainingApplication">
     <configuration name="EnglishTrainingApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="englishtraining.EnglishTrainingApplication" />
       <module name="english-training-backend" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="englishtraining.*" />
@@ -101,29 +113,82 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WordServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="english-training-backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="englishtraining.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="englishtraining.service" />
+      <option name="MAIN_CLASS_NAME" value="englishtraining.service.WordServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WordServiceTest.shouldDeleteWord_WhenGivenIdAndWordExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="english-training-backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="englishtraining.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="englishtraining.service" />
+      <option name="MAIN_CLASS_NAME" value="englishtraining.service.WordServiceTest" />
+      <option name="METHOD_NAME" value="shouldDeleteWord_WhenGivenIdAndWordExist" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WordServiceTest.shouldReturnFilteredListOfWordDto_WhenGivenPageAndSizeAndLevelAndStatusAndDirectionAndSortedField" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="english-training-backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="englishtraining.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="englishtraining.service" />
+      <option name="MAIN_CLASS_NAME" value="englishtraining.service.WordServiceTest" />
+      <option name="METHOD_NAME" value="shouldReturnFilteredListOfWordDto_WhenGivenPageAndSizeAndLevelAndStatusAndDirectionAndSortedField" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WordServiceTest.shouldThrowWordNotFoundException_WhenGivenIdAndWordDoesNotExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="english-training-backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="englishtraining.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="englishtraining.service" />
+      <option name="MAIN_CLASS_NAME" value="englishtraining.service.WordServiceTest" />
+      <option name="METHOD_NAME" value="shouldThrowWordNotFoundException_WhenGivenIdAndWordDoesNotExist" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="backend.english-training: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="english-training" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="backend/docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.EnglishTrainingApplication" />
-        <item itemvalue="Docker.backend.english-training: Compose Deployment" />
+        <item itemvalue="JUnit.WordServiceTest" />
+        <item itemvalue="JUnit.WordServiceTest.shouldReturnFilteredListOfWordDto_WhenGivenPageAndSizeAndLevelAndStatusAndDirectionAndSortedField" />
+        <item itemvalue="JUnit.WordServiceTest.shouldThrowWordNotFoundException_WhenGivenIdAndWordDoesNotExist" />
+        <item itemvalue="JUnit.WordServiceTest.shouldDeleteWord_WhenGivenIdAndWordExist" />
       </list>
     </recent_temporary>
   </component>
@@ -248,7 +313,21 @@
       <option name="project" value="LOCAL" />
       <updated>1701118794885</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Fix: fixed some bugs">
+      <created>1701255987915</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1701255987915</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Fix: fixed some bugs">
+      <created>1701256068443</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1701256068443</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -279,7 +358,8 @@
     <MESSAGE value="Feature: spring security added" />
     <MESSAGE value="Feature: baseEntity added for model classes" />
     <MESSAGE value="Refactor: updated the relationship between model classes and added UserController" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor: updated the relationship between model classes and added UserController" />
+    <MESSAGE value="Fix: fixed some bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix: fixed some bugs" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
@@ -292,5 +372,38 @@
         <watch expression="wordModel.id" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/english_training$WordServiceTest.ic" NAME="WordServiceTest Coverage Results" MODIFIED="1701455855663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>englishtraining.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/english_training$WordServiceTest_shouldDeleteWord_WhenGivenIdAndWordExist.ic" NAME="WordServiceTest.shouldDeleteWord_WhenGivenIdAndWordExist Coverage Results" MODIFIED="1701454197584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>englishtraining.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/english_training$WordServiceTest_shouldThrowAlreadyExistException_WhenGivenWordRequestAndIdAndWordRequestNameDoesNotEqualWordNameAndWordAlreadyExist.ic" NAME="WordServiceTest.shouldThrowAlreadyExistException_WhenGivenWordRequestAndIdAndWordRequestNameDoesNotEqualWordNameAndWordAlreadyExist Coverage Results" MODIFIED="1701454138488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>englishtraining.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/english_training$WordServiceTest_shouldThrowAlreadyExistException_WhenGivenWordRequestAndWordAlreadyExist.ic" NAME="WordServiceTest.shouldThrowAlreadyExistException_WhenGivenWordRequestAndWordAlreadyExist Coverage Results" MODIFIED="1701452692109" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>englishtraining.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/english_training$WordServiceTest_shouldReturnWordDto_WhenIdExist.ic" NAME="WordServiceTest.shouldReturnWordDto_WhenIdExist Coverage Results" MODIFIED="1701453385094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>englishtraining.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/english_training$WordServiceTest_shouldReturnWordDto_WhenGivenWordRequestAndIdAndWordAlreadyDoesNotExist.ic" NAME="WordServiceTest.shouldReturnWordDto_WhenGivenWordRequestAndIdAndWordAlreadyDoesNotExist Coverage Results" MODIFIED="1701453524074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>englishtraining.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/english_training$WordServiceTest_shouldThrowWordNotFoundException_WhenGivenIdAndWordDoesNotExist.ic" NAME="WordServiceTest.shouldThrowWordNotFoundException_WhenGivenIdAndWordDoesNotExist Coverage Results" MODIFIED="1701454523881" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>englishtraining.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/english_training$WordServiceTest_shouldReturnFilteredListOfWordDto_WhenGivenPageAndSizeAndLevelAndStatusAndDirectionAndSortedField.ic" NAME="WordServiceTest.shouldReturnFilteredListOfWordDto_WhenGivenPageAndSizeAndLevelAndStatusAndDirectionAndSortedField Coverage Results" MODIFIED="1701455030883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>englishtraining.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/english_training$WordServiceTest_shouldThrowAlreadyExistException_WhenGivenWordRequestAndIdAndWordAlreadyExist.ic" NAME="WordServiceTest.shouldThrowAlreadyExistException_WhenGivenWordRequestAndIdAndWordAlreadyExist Coverage Results" MODIFIED="1701453705996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>englishtraining.service.*</FILTER>
+    </SUITE>
   </component>
 </project>
