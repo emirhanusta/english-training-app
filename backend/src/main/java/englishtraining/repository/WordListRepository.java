@@ -8,4 +8,6 @@ import java.util.UUID;
 
 public interface WordListRepository extends JpaRepository<WordList, UUID> {
     Optional<WordList> findByName(String name);
+
+    Boolean existsByName(String name);
 }

@@ -43,13 +43,16 @@ public class WordListService {
         checkIfWordListAlreadyExists(wordListRequest.name());
         WordList wordList = new WordList(
                 wordListRequest.name(),
-                userService.findUserById(UUID.fromString(wordListRequest.userId()))
+                userService.findUserById(wordListRequest.userId())
         );
         return WordListDto.from(wordListRepository.save(wordList));
     }
 
     public WordListDto updateWordList(UUID id, WordListRequest wordListRequest) {
         WordList wordList = findWordListById(id);
+        if (!Objects.equals(wordList.getName(), wordListRequest.name())) {
+            checkIfWordListAlreadyExists(wordListRequest.name());
+        }
         wordList.setName(wordListRequest.name());
         return WordListDto.from(wordListRepository.save(wordList));
     }
@@ -89,10 +92,8 @@ public class WordListService {
     }
 
     private void checkIfWordListAlreadyExists(String name) {
-        wordListRepository.findByName(name).ifPresent(
-                wordList -> {
-                    throw new AlreadyExistException("Word list already exist with name: " + name);
-                }
-        );
+        if (wordListRepository.existsByName(name)) {
+            throw new AlreadyExistException("Word list already exists with name: " + name);
+        }
     }
 }
