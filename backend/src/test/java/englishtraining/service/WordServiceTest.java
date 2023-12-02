@@ -69,13 +69,7 @@ class WordServiceTest {
                 WordStatus.LEARNING.toString(),
                 null
         );
-        Word word = new Word(
-                wordRequest.name(),
-                wordRequest.definition(),
-                null,
-                Level.valueOf(wordRequest.level()),
-                WordStatus.valueOf(wordRequest.status())
-        );
+
         //when
         when(wordRepository.existsByNameAndActiveTrue(wordRequest.name())).thenReturn(true);
 
@@ -145,9 +139,11 @@ class WordServiceTest {
         //then
         assertThatThrownBy(() -> wordService.updateWord(id, wordRequest))
                 .isInstanceOf(AlreadyExistException.class)
+
                 .hasMessageContaining("Word already exists with this name: " + wordRequest.name());
         verify(wordRepository, times(1)).findByIdAndActiveTrue(id);
         verify(wordRepository, times(1)).existsByNameAndActiveTrue(wordRequest.name());
+        verify(wordRepository, times(0)).save(word);
     }
 
 

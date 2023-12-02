@@ -35,7 +35,7 @@ public class DiaryService {
         Diary diary = new Diary(
                 diaryRequest.title(),
                 diaryRequest.content(),
-                userService.findUserById(UUID.fromString(diaryRequest.userId()))
+                userService.findUserById(diaryRequest.userId())
         );
         return DiaryDto.from(diaryRepository.save(diary));
     }
@@ -48,12 +48,12 @@ public class DiaryService {
     }
 
     public void deleteDiary(UUID id) {
-        diaryRepository.deleteById(id);
+        diaryRepository.delete(findDiaryById(id));
     }
 
     private Diary findDiaryById(UUID id) {
         return diaryRepository.findById(id).orElseThrow(
-                () -> new DiaryNotFoundException(id)
+                () -> new DiaryNotFoundException("Diary not found with id: " + id)
         );
     }
 }
