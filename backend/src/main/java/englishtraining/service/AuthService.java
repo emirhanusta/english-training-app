@@ -1,7 +1,7 @@
 package englishtraining.service;
 
 import englishtraining.dto.request.LoginRequest;
-import englishtraining.dto.request.SignUpRequest;
+import englishtraining.dto.request.UserRequest;
 import englishtraining.dto.response.TokenDto;
 import englishtraining.dto.response.UserDto;
 import englishtraining.exception.AlreadyExistException;
@@ -11,6 +11,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +31,6 @@ public class AuthService {
     }
 
     public TokenDto login(LoginRequest loginRequest) {
-
         try {
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
@@ -47,21 +47,22 @@ public class AuthService {
         }
     }
 
-    public UserDto signup(SignUpRequest signUpRequest) {
-        boolean existsUserByName = userService.existsUserByName(signUpRequest.username());
-
+    public UserDto signup(UserRequest userRequest) {
+        boolean existsUserByName = userService.existsUserByName(userRequest.username());
         if (existsUserByName) {
             throw new AlreadyExistException("Username is already taken!");
         }
-
         User user = new User(
-                signUpRequest.username(),
-                encoder.encode(signUpRequest.password()),
-                signUpRequest.email(),
+                userRequest.username(),
+                encoder.encode(userRequest.password()),
+                userRequest.email(),
                 Role.USER
         );
-
         return UserDto.from(userService.saveUser(user));
     }
 
+    public UserDto getAuthenticatedUser() {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        return UserDto.from(userService.findUserByName(username));
+    }
 }

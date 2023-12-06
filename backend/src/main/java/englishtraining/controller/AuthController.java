@@ -2,7 +2,7 @@ package englishtraining.controller;
 
 
 import englishtraining.dto.request.LoginRequest;
-import englishtraining.dto.request.SignUpRequest;
+import englishtraining.dto.request.UserRequest;
 import englishtraining.dto.response.TokenDto;
 import englishtraining.dto.response.UserDto;
 import englishtraining.service.AuthService;
@@ -26,8 +26,8 @@ public class AuthController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<UserDto> registerUser(@RequestBody SignUpRequest signUpRequest){
-        return ResponseEntity.ok(authService.signup(signUpRequest));
+    public ResponseEntity<UserDto> registerUser(@RequestBody UserRequest userRequest){
+        return ResponseEntity.ok(authService.signup(userRequest));
     }
 
 }

@@ -12,5 +12,5 @@ data class User @JvmOverloads constructor(
     var password: String,
     var email: String,
     @Enumerated(EnumType.ORDINAL)
-    val role: Role? = null,
+    var role: Role? = null,
 ) : BaseEntity()
