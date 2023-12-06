@@ -1,6 +1,6 @@
 package englishtraining.dto.request;
 
-public record SignUpRequest(
+public record UserRequest(
         String username,
         String password,
         String email

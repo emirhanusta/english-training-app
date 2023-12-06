@@ -1,11 +1,10 @@
 package englishtraining.service;
 
-import englishtraining.dto.request.SignUpRequest;
+import englishtraining.dto.request.UserRequest;
 import englishtraining.dto.response.UserDto;
 import englishtraining.exception.UserNotFoundException;
 import englishtraining.model.User;
 import englishtraining.repository.UserRepository;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -40,20 +39,16 @@ public class UserService {
         );
     }
 
-    public void deleteUser() {
-        userRepository.deleteById(getAuthenticatedUser().id());
+    public void deleteUser(UUID id) {
+        userRepository.delete(findUserById(id));
     }
 
-    public UserDto updateUser(SignUpRequest request) {
-        User user = findUserById(getAuthenticatedUser().id());
+    public UserDto updateUser(UUID id, UserRequest request) {
+        User user = findUserById(id);
         user.setUsername(request.username());
         user.setPassword(request.password());
         user.setEmail(request.email());
         return UserDto.from(saveUser(user));
     }
 
-    public UserDto getAuthenticatedUser() {
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        return UserDto.from(findUserByName(username));
-    }
 }

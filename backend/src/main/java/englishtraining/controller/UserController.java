@@ -1,6 +1,6 @@
 package englishtraining.controller;
 
-import englishtraining.dto.request.SignUpRequest;
+import englishtraining.dto.request.UserRequest;
 import englishtraining.dto.response.UserDto;
 import englishtraining.service.AuthService;
 import englishtraining.service.UserService;
@@ -8,30 +8,34 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @CrossOrigin
 @RestController
 @RequestMapping("/user")
 public class UserController {
     private final UserService userService;
-    public UserController(UserService userService) {
+    private final AuthService authService;
+    public UserController(UserService userService, AuthService authService) {
         this.userService = userService;
+        this.authService = authService;
     }
 
     @GetMapping("/me")
     public ResponseEntity<UserDto> getUserById() {
         return ResponseEntity.status(HttpStatus.OK)
-                .body(userService.getAuthenticatedUser());
+                .body(authService.getAuthenticatedUser());
     }
 
-    @PutMapping("/update")
-    public ResponseEntity<UserDto> updateUser(@RequestBody SignUpRequest request) {
+    @PutMapping("/update/{id}")
+    public ResponseEntity<UserDto> updateUser(@PathVariable UUID id, @RequestBody UserRequest request) {
         return ResponseEntity.status(HttpStatus.OK)
-                .body(userService.updateUser(request));
+                .body(userService.updateUser(id, request));
     }
 
-    @DeleteMapping("/delete")
-    public ResponseEntity<Void> deleteUser() {
-        userService.deleteUser();
-        return ResponseEntity.noContent().build();
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable UUID id) {
+        userService.deleteUser(id);
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 }
