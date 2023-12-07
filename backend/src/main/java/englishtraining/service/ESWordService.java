@@ -2,6 +2,7 @@ package englishtraining.service;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import englishtraining.dto.response.WordDto;
+import englishtraining.exception.WordNotFoundException;
 import englishtraining.model.Word;
 import englishtraining.model.es.ESWord;
 import englishtraining.repository.ESWordRepository;
@@ -39,7 +40,7 @@ public class ESWordService {
                     .hits()
                     .hits()
                     .stream()
-                    .map(Hit::source)
+                    .map(Hit::source).filter(Objects::nonNull)
                     .map(
                             esWord -> new WordDto(
                                     UUID.fromString(Objects.requireNonNull(esWord.getId())),
@@ -79,7 +80,10 @@ public class ESWordService {
                     esWordRepository.save(esWord);
                     logger.info("Word updated in ES: " + esWord);
                 },
-                () -> logger.info("Word not found in ES: " + word.getId().toString()));
+                () -> {
+                    logger.error("Word not found in ES: " + word.getId());
+                    throw new WordNotFoundException("Word not found in ES: " + word.getId());
+                });
     }
 
     protected void deleteESWord(UUID id) {
@@ -88,6 +92,9 @@ public class ESWordService {
                     esWordRepository.delete(esWord);
                     logger.info("Word deleted in ES: " + esWord);
                 },
-                () -> logger.error("Word not found in ES: " + id));
+                () ->  {
+                    logger.error("Word not found in ES: " + id);
+                    throw new WordNotFoundException("Word not found in ES: " + id);
+                });
     }
 }
