@@ -4,11 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3aef9cd-46e3-4b60-af47-7627ca6f1a5d" name="Changes" comment="Added: unit test added for UserDetailsServiceImpl">
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/englishtraining/service/ESWordServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/englishtraining/service/TokenServiceTest.java" afterDir="false" />
+    <list default="true" id="b3aef9cd-46e3-4b60-af47-7627ca6f1a5d" name="Changes" comment="Added: all unit tests added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/ESWordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/ESWordService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/config/SecuriyConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/config/SecuriyConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/DiaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/DiaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/WordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/WordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/WordListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/WordListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/response/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/response/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/response/WordListDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/response/WordListDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/repository/DiaryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/repository/DiaryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/repository/WordListRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/repository/WordListRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/DiaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/DiaryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordListService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/englishtraining/service/DiaryServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/englishtraining/service/DiaryServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/englishtraining/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/englishtraining/service/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/englishtraining/service/WordListServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/englishtraining/service/WordListServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/word/ViewWord.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/word/ViewWord.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/word/Words.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/word/Words.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,23 +113,21 @@
       <recent name="englishtraining.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TokenServiceTest.shouldThrowExceptionForInvalidToken">
-    <configuration name="ESWordServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.EnglishTrainingApplication">
+    <configuration name="EnglishTrainingApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="englishtraining.EnglishTrainingApplication" />
       <module name="english-training-backend" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="englishtraining.service.*" />
+          <option name="PATTERN" value="englishtraining.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="englishtraining.service" />
-      <option name="MAIN_CLASS_NAME" value="englishtraining.service.ESWordServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TokenServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DiaryServiceTest.shouldReturnListOfDiaryDto_WhenGivenPageAndSize" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="english-training-backend" />
       <extension name="coverage">
         <pattern>
@@ -122,29 +136,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="englishtraining.service" />
-      <option name="MAIN_CLASS_NAME" value="englishtraining.service.TokenServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TokenServiceTest.shouldGenerateValidToken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="english-training-backend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="englishtraining.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="englishtraining.service" />
-      <option name="MAIN_CLASS_NAME" value="englishtraining.service.TokenServiceTest" />
-      <option name="METHOD_NAME" value="shouldGenerateValidToken" />
+      <option name="MAIN_CLASS_NAME" value="englishtraining.service.DiaryServiceTest" />
+      <option name="METHOD_NAME" value="shouldReturnListOfDiaryDto_WhenGivenPageAndSize" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TokenServiceTest.shouldThrowExceptionForInvalidToken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="english-training-backend" />
       <extension name="coverage">
         <pattern>
@@ -153,14 +152,29 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="englishtraining.service" />
-      <option name="MAIN_CLASS_NAME" value="englishtraining.service.TokenServiceTest" />
-      <option name="METHOD_NAME" value="shouldThrowExceptionForInvalidToken" />
+      <option name="MAIN_CLASS_NAME" value="englishtraining.service.UserServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.shouldReturnUserDto_WhenGivenIdWithUserRequestAndUserExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="english-training-backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="englishtraining.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="englishtraining.service" />
+      <option name="MAIN_CLASS_NAME" value="englishtraining.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="shouldReturnUserDto_WhenGivenIdWithUserRequestAndUserExists" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TokenServiceTest.shouldVerifyValidToken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WordListServiceTest.shouldReturnListOfWordListDto_WhenGivenPageAndSize" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="english-training-backend" />
       <extension name="coverage">
         <pattern>
@@ -169,8 +183,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="englishtraining.service" />
-      <option name="MAIN_CLASS_NAME" value="englishtraining.service.TokenServiceTest" />
-      <option name="METHOD_NAME" value="shouldVerifyValidToken" />
+      <option name="MAIN_CLASS_NAME" value="englishtraining.service.WordListServiceTest" />
+      <option name="METHOD_NAME" value="shouldReturnListOfWordListDto_WhenGivenPageAndSize" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -184,11 +198,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TokenServiceTest.shouldThrowExceptionForInvalidToken" />
-        <item itemvalue="JUnit.TokenServiceTest.shouldVerifyValidToken" />
-        <item itemvalue="JUnit.TokenServiceTest.shouldGenerateValidToken" />
-        <item itemvalue="JUnit.TokenServiceTest" />
-        <item itemvalue="JUnit.ESWordServiceTest" />
+        <item itemvalue="Application.EnglishTrainingApplication" />
+        <item itemvalue="JUnit.WordListServiceTest.shouldReturnListOfWordListDto_WhenGivenPageAndSize" />
+        <item itemvalue="JUnit.DiaryServiceTest.shouldReturnListOfDiaryDto_WhenGivenPageAndSize" />
+        <item itemvalue="JUnit.UserServiceTest" />
+        <item itemvalue="JUnit.UserServiceTest.shouldReturnUserDto_WhenGivenIdWithUserRequestAndUserExists" />
       </list>
     </recent_temporary>
   </component>
@@ -369,7 +383,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701888569831</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Added: all unit tests added">
+      <created>1701971512827</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1701971512827</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -407,7 +428,8 @@
     <MESSAGE value="Added: unit test added for UserService" />
     <MESSAGE value="Added: unit test added for AuthService" />
     <MESSAGE value="Added: unit test added for UserDetailsServiceImpl" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added: unit test added for UserDetailsServiceImpl" />
+    <MESSAGE value="Added: all unit tests added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added: all unit tests added" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
@@ -447,7 +469,7 @@
     <SUITE FILE_PATH="coverage/english_training$WordServiceTest_shouldReturnWordDto_WhenGivenWordRequestAndIdAndWordAlreadyDoesNotExist.ic" NAME="WordServiceTest.shouldReturnWordDto_WhenGivenWordRequestAndIdAndWordAlreadyDoesNotExist Coverage Results" MODIFIED="1701453524074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>englishtraining.service.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/english_training$EnglishTrainingApplicationTests.ic" NAME="EnglishTrainingApplicationTests Coverage Results" MODIFIED="1701878757437" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/english_training$EnglishTrainingApplicationTests.ic" NAME="EnglishTrainingApplicationTests Coverage Results" MODIFIED="1701971722613" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>englishtraining.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/english_training$DiaryServiceTest_shouldReturnDiaryDto_WhenGivenId.ic" NAME="DiaryServiceTest.shouldReturnDiaryDto_WhenGivenId Coverage Results" MODIFIED="1701547705958" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -528,7 +550,7 @@
     <SUITE FILE_PATH="coverage/english_training$ESWordServiceTest_shouldThrowWordNotFoundExceptionWhenDeleteESWordIsCalledWithAIdThatDoesNotExist.ic" NAME="ESWordServiceTest.shouldThrowWordNotFoundExceptionWhenDeleteESWordIsCalledWithAIdThatDoesNotExist Coverage Results" MODIFIED="1701887564616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>englishtraining.service.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/english_training$EnglishTrainingApplication.ic" NAME="EnglishTrainingApplication Coverage Results" MODIFIED="1701878705784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/english_training$EnglishTrainingApplication.ic" NAME="EnglishTrainingApplication Coverage Results" MODIFIED="1702039977238" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>englishtraining.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/english_training$UserServiceTest_shouldReturnTrue_WhenGivenUsernameAndUserExists.ic" NAME="UserServiceTest.shouldReturnTrue_WhenGivenUsernameAndUserExists Coverage Results" MODIFIED="1701874190250" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

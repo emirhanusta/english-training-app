@@ -5,6 +5,7 @@ import englishtraining.dto.request.DiaryRequest;
 import englishtraining.exception.DiaryNotFoundException;
 import englishtraining.model.Diary;
 import englishtraining.repository.DiaryRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +26,9 @@ public class DiaryService {
         return DiaryDto.from(findDiaryById(id));
     }
 
-    public List<DiaryDto> getAllDiaries(int page, int size) {
-        return diaryRepository.findAll(PageRequest.of(page, size)).stream()
+    @Transactional
+    public List<DiaryDto> getAllDiaries(UUID userId, int page, int size) {
+        return diaryRepository.findAllByUserId(userId, PageRequest.of(page, size)).stream()
                 .map(DiaryDto::from)
                 .toList();
     }

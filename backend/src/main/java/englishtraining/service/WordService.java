@@ -21,8 +21,6 @@ import java.util.UUID;
 @Service
 public class WordService {
 
-    private final Logger logger = LoggerFactory.getLogger(WordService.class);
-
     private final WordRepository wordRepository;
     private final ESWordService esWordService;
 
@@ -60,7 +58,7 @@ public class WordService {
 
     public WordDto updateWord(UUID id, WordRequest wordRequest) {
         Word word = findWordById(id);
-        if (!wordRequest.name().equals(word.getName())) {
+        if (!wordRequest.name().toUpperCase().equals(word.getName())) {
             checkIfWordAlreadyExists(wordRequest.name());
         }
         word.setName(wordRequest.name().toUpperCase());

@@ -76,22 +76,24 @@ class WordListServiceTest {
     @DisplayName("should return list of wordListDto when given page and size")
     void shouldReturnListOfWordListDto_WhenGivenPageAndSize() {
         //given
+        UUID userId = UUID.randomUUID();
         int page = 0;
         int size = 10;
         User user = new User("username", "password", "email");
+        user.setId(userId);
         WordList wordList = new WordList("name", null, user);
         WordList wordList2 = new WordList("name2", null, user);
 
         List<WordList> wordLists = List.of(wordList, wordList2);
         Page<WordList> wordListPage = new PageImpl<>(wordLists);
         //when
-        when(wordListRepository.findAll(PageRequest.of(page, size))).thenReturn(wordListPage);
+        when(wordListRepository.findAllByUserId(PageRequest.of(page, size), userId)).thenReturn(wordListPage);
         //then
-        List<WordListDto> result = wordListService.getAllWordLists(page, size);
+        List<WordListDto> result = wordListService.getAllWordLists(userId, page, size);
 
         assertEquals(result.size(), wordLists.size());
 
-        verify(wordListRepository, times(1)).findAll(PageRequest.of(page, size));
+        verify(wordListRepository, times(1)).findAllByUserId(PageRequest.of(page, size), userId);
     }
 
     @Test

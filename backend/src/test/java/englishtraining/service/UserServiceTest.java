@@ -4,6 +4,7 @@ import englishtraining.dto.request.UserRequest;
 import englishtraining.dto.response.UserDto;
 import englishtraining.exception.UserNotFoundException;
 import englishtraining.model.User;
+import englishtraining.model.enums.Role;
 import englishtraining.repository.UserRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -158,8 +160,9 @@ class UserServiceTest {
         UUID id = UUID.randomUUID();
         UserRequest userRequest = new UserRequest("updated_name", "updated_password", "updated_email");
         User user = new User("username", "password", "email");
+        user.setRole(Role.USER);
         user.setId(id);
-        UserDto userDto = new UserDto(id,"username", "email");
+        UserDto userDto = new UserDto(id,"username", "email", Objects.requireNonNull(user.getRole()).toString());
         //when
         when(userRepository.findById(id)).thenReturn(Optional.of(user));
         when(userRepository.save(user)).thenReturn(user);

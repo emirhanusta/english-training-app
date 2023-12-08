@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
-@CrossOrigin
 @RestController
 @RequestMapping("/api/v1/diary")
 public class DiaryController {
@@ -20,10 +19,11 @@ public class DiaryController {
         this.diaryService = diaryService;
     }
 
-    @GetMapping("/getAll")
-    public ResponseEntity<List<DiaryDto>> getAllDiaries (@RequestParam(defaultValue = "0") int page,
+    @GetMapping("/getAll/{userId}")
+    public ResponseEntity<List<DiaryDto>> getAllDiaries (@PathVariable UUID userId,
+                                                         @RequestParam(defaultValue = "0") int page,
                                                          @RequestParam(defaultValue = "5") int size) {
-        return ResponseEntity.ok(diaryService.getAllDiaries(page, size));
+        return ResponseEntity.ok(diaryService.getAllDiaries(userId, page, size));
     }
 
     @GetMapping("/get/{id}")

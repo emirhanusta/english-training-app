@@ -70,22 +70,24 @@ class DiaryServiceTest {
     @DisplayName("should return list of diaryDto when given page and size")
     void shouldReturnListOfDiaryDto_WhenGivenPageAndSize() {
         //given
+        UUID userId = UUID.randomUUID();
         int page = 0;
         int size = 10;
         User user = new User("username", "password", "email");
+        user.setId(userId);
         Diary diary = new Diary("title", "content", user);
         Diary diary2 = new Diary("title2", "content2", user);
 
         List<Diary> diaries = List.of(diary, diary2);
-        Page<Diary>  diaryPage = new PageImpl<>(diaries);
+        Page<Diary> diaryPage = new PageImpl<>(diaries);
         //when
-        when(diaryRepository.findAll(PageRequest.of(page, size))).thenReturn(diaryPage);
+        when(diaryRepository.findAllByUserId(userId, PageRequest.of(page, size))).thenReturn( diaryPage);
         //then
-        List<DiaryDto> result = diaryService.getAllDiaries(page, size);
+        List<DiaryDto> result = diaryService.getAllDiaries(userId, page, size);
 
         assertEquals(result.size(), 2);
 
-        verify(diaryRepository, times(1)).findAll(PageRequest.of(page, size));
+        verify(diaryRepository, times(1)).findAllByUserId(userId, PageRequest.of(page, size));
     }
 
     @Test

@@ -31,9 +31,9 @@ public class WordListService {
         return WordListDto.from(wordList);
     }
 
-    public List<WordListDto> getAllWordLists(int page, int size) {
+    public List<WordListDto> getAllWordLists(UUID userId, int page, int size) {
         PageRequest pageRequest = PageRequest.of(page, size);
-        return wordListRepository.findAll(pageRequest)
+        return wordListRepository.findAllByUserId(pageRequest, userId)
                 .stream()
                 .map(WordListDto::from)
                 .toList();

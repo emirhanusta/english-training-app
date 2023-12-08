@@ -4,12 +4,12 @@ import englishtraining.dto.response.WordListDto;
 import englishtraining.dto.request.WordListRequest;
 import englishtraining.service.WordListService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
-@CrossOrigin
 @RestController
 @RequestMapping("/api/v1/word-list")
 public class WordListController {
@@ -25,10 +25,11 @@ public class WordListController {
         return ResponseEntity.ok(wordListService.createWordList(wordListRequest));
     }
 
-    @GetMapping("/getAll")
-    public ResponseEntity<List<WordListDto>> getAllWordLists (@RequestParam(defaultValue = "0") int page,
+    @GetMapping("/getAll/{userId}")
+    public ResponseEntity<List<WordListDto>> getAllWordLists (@PathVariable UUID userId,
+                                                              @RequestParam(defaultValue = "0") int page,
                                                               @RequestParam(defaultValue = "5") int size) {
-        return ResponseEntity.ok(wordListService.getAllWordLists(page, size));
+        return ResponseEntity.ok(wordListService.getAllWordLists(userId, page, size));
     }
 
     @GetMapping("/get/{id}")

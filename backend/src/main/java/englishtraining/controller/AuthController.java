@@ -9,7 +9,6 @@ import englishtraining.service.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin
 @RestController
 @RequestMapping("/api/v1/auth")
 public class AuthController {
