@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { PostWithAuth  } from "../../helpers/axios_helper";
 
 export default function AddDiary() {
 
@@ -9,6 +9,7 @@ export default function AddDiary() {
     const [diary, setDiary] = useState({
         title: "",
         content: "",
+        userId: localStorage.getItem('currentUser')
     });
 
     const { title, content } = diary;
@@ -19,7 +20,7 @@ export default function AddDiary() {
     
     const onSubmit = async e => {
         e.preventDefault();
-        await axios.post(`http://localhost:8080/api/v1/diary/save`, diary);
+        await PostWithAuth("http://localhost:8080/api/v1/diary/save", diary);
         navigate("/viewdiarys");
     }
 

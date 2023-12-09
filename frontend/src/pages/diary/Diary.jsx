@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { GetWithAuth  } from "../../helpers/axios_helper";
 
 export default function Diary() {
   const [diary, setDiary] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(5); 
-
+  const userId = localStorage.getItem('currentUser');
+  
   useEffect(() => {
     loadDiary();
   }, [currentPage]);
 
   const loadDiary = async () => {
-    const result = await axios.get(`http://localhost:8080/api/v1/diary/getAll?page=${currentPage}&size=${itemsPerPage}`);
+    const result = await GetWithAuth(`http://localhost:8080/api/v1/diary/getAll/${userId}?page=${currentPage}&size=${itemsPerPage}`);
     setDiary(result.data);
   }
 

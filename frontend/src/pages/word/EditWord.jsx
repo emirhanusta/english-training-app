@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Dropdown } from 'react-bootstrap';
+import { GetWithoutAuth, PutWithAuth  } from "../../helpers/axios_helper";
 
 export default function EditWord() {
     let navigate = useNavigate();
@@ -12,8 +13,7 @@ export default function EditWord() {
         definition: "",
         level: "",
         status: "",
-        exampleSentences: [],
-        wordListId: id
+        exampleSentences: []
     });
 
     const onExampleSentencesChange = (e) => {
@@ -32,17 +32,18 @@ export default function EditWord() {
 
     const onSubmit = async e => {
         e.preventDefault();
+        console.log(localStorage.getItem('token'));
         try {
-        await axios.put(`http://localhost:8080/api/v1/word/update/${id}`, word);
+        await PutWithAuth(`http://localhost:8080/api/v1/word/update/${id}`, word);
         navigate(`/viewworddetails/${id}`);
-      
+    
       } catch (error) {
         alert(error.response.data.message);
       }
     };
 
     const loadWord = async () => {
-        const result = await axios.get(`http://localhost:8080/api/v1/word/get/${id}`);
+        const result = await GetWithoutAuth(`http://localhost:8080/api/v1/word/get/${id}`);
         setWord(result.data);
     }
 
@@ -122,12 +123,11 @@ export default function EditWord() {
                 id="exampleSentences"
                 name="exampleSentences"
                 rows="3"
-                value={word.exampleSentences.join('\n')} // Cümleleri yeni satırlarla birleştir
+                value={word.exampleSentences.join('\n')} 
                 onChange={onExampleSentencesChange}
               />
             </div>
             <button type="submit" className="btn btn-outline-info btn-block">
-              {console.log(word)}
               Update
             </button>
           </form>

@@ -2,25 +2,27 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { RiDeleteBin6Line, RiEdit2Line } from 'react-icons/ri';
+import { GetWithAuth, DeleteWithAuth  } from "../../helpers/axios_helper";
 
 export default function WordList() {
   const [wordList, setWordList] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(5); // Her sayfada kaç öğe gösterileceğini belirleyin
+  const [itemsPerPage, setItemsPerPage] = useState(5); 
 
   const { id } = useParams();
+  const userId = localStorage.getItem('currentUser');
 
   useEffect(() => {
     loadWordList();
   }, [currentPage]);
 
   const loadWordList = async () => {
-    const result = await axios.get(`http://localhost:8080/api/v1/word-list/getAll?page=${currentPage}&size=${itemsPerPage}`);
+    const result = await GetWithAuth(`http://localhost:8080/api/v1/word-list/getAll/${userId}?page=${currentPage}&size=${itemsPerPage}`);
     setWordList(result.data);
   }
 
   const deleteWordList = async id => {
-    await axios.delete(`http://localhost:8080/api/v1/word-list/delete/${id}`);
+    await DeleteWithAuth(`http://localhost:8080/api/v1/word-list/delete/${id}`);
     loadWordList();
   }
 

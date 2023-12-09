@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { RiDeleteBin6Line, RiEdit2Line } from 'react-icons/ri';
+import { GetWithoutAuth, PutWithAuth, DeleteWithAuth} from "../../helpers/axios_helper";
 
 export default function ViewWord() {
     let navigate = useNavigate();
@@ -14,16 +14,18 @@ export default function ViewWord() {
         exampleSentences: [],
         wordListsId: ""
     });    
-
     const [inputVisible, setInputVisible] = useState(false);
     const [inputValue, setInputValue] = useState('');
-  
+
+    let isAdmin = localStorage.getItem('role') === "ADMIN" ? true : false;
+    let isUser = localStorage.getItem('role') === "USER" ? true : false;
+
     const handleAddField = () => {
       setInputVisible(true);
     };
 
     const handleSubmit = () => {
-        axios.put(`http://localhost:8080/api/v1/word-list/addWord/${inputValue}/${word.id}`);
+        PutWithAuth(`http://localhost:8080/api/v1/word-list/addWord/${inputValue}/${word.id}`);
         setInputVisible(false);
         alert("Word added to the list");
       };
@@ -31,7 +33,7 @@ export default function ViewWord() {
     const { id } = useParams();
 
     const loadWord = async () => {
-        const res = await axios.get(`http://localhost:8080/api/v1/word/get/${id}`);
+        const res = await GetWithoutAuth(`http://localhost:8080/api/v1/word/get/${id}`);
         setWord(res.data);
     };
 
@@ -40,7 +42,7 @@ export default function ViewWord() {
     }, []);
     
     const deleteWord = async id => {
-        await axios.delete(`http://localhost:8080/api/v1/word/delete/${id}`);
+        await DeleteWithAuth(`http://localhost:8080/api/v1/word/delete/${id}`);
         navigate(`/`);
     }
 
@@ -57,16 +59,17 @@ export default function ViewWord() {
                     <li className="list-group-item blockquote-footer " key={i}>{sentence}</li>
                 ))}
             </ul>
-            <Link className="btn btn-outline-info mx-2" to={`/editword/${word.id}`}>
+            {isAdmin ?<Link className="btn btn-outline-info mx-2" to={`/editword/${word.id}`}>
                 <RiEdit2Line />
-            </Link>
-            <button className="btn btn-outline-info mx-2" onClick={handleAddField}>
-                Add Word List
-            </button>
+            </Link> : <div></div>}
 
-            <button className="btn btn-outline-danger mx-2" onClick={() => deleteWord(word.id)}>
+            {isUser || isAdmin ? <button className="btn btn-outline-info mx-2" onClick={handleAddField}>
+                Add Word List
+            </button>: <div></div>}
+
+            {isAdmin ? <button className="btn btn-outline-danger mx-2" onClick={() => deleteWord(word.id)}>
                 <RiDeleteBin6Line />
-            </button>
+            </button> : <div></div>}
 
             {inputVisible && (
                         <div className="mt-3">

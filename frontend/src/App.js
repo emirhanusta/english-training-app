@@ -14,6 +14,8 @@ import ViewWord from "./pages/word/ViewWord";
 import EditWord from "./pages/word/EditWord";
 import AddWord from "./pages/word/AddWord";
 import WordList from "./pages/wordList/WordList";
+import LoginPage from "./pages/auth/LoginPage";
+import SignupPage from "./pages/auth/SigupPage";
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
             <Route exact path="/viewworddetails/:id" element={<ViewWord/>} />
             <Route exact path="/editword/:id" element={<EditWord/>} />
             <Route exact path="/addword/" element={<AddWord/>} />
+            <Route exact path="/login/" element={<LoginPage/>} />
+            <Route exact path="/signup/" element={<SignupPage/>} />
           </Routes>
       </BrowserRouter>
     </div>

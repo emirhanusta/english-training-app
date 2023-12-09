@@ -1,6 +1,6 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { PostWithAuth } from '../../helpers/axios_helper';
 
 export default function AddWordList() {
 
@@ -8,16 +8,20 @@ export default function AddWordList() {
 
   const [wordList, setWordList] = useState({
     name: "",
+    userId: localStorage.getItem('currentUser')
   });
 
-  const { name } = wordList;
+  const { name, userId } = wordList;
+
   const onInputChange = e => {
     setWordList({ ...wordList, [e.target.name]: e.target.value });
   };
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.post("http://localhost:8080/api/v1/word-list/save", wordList);
+    console.log(localStorage.getItem('token'));
+    console.log(wordList);
+    await PostWithAuth("http://localhost:8080/api/v1/word-list/save", wordList);
     navigate("/viewwordlists");
   };
 

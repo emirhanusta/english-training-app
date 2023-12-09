@@ -52,13 +52,7 @@ public class SecuriyConfig {
                                 .requestMatchers( "/api/v1/word/**").hasAnyAuthority( "ADMIN")
                                 .anyRequest().authenticated()
                 )
-                .exceptionHandling(exceptionHandling ->
-                        exceptionHandling
-                                .authenticationEntryPoint(authenticationEntryPoint)
-                                .accessDeniedHandler(accessDeniedHandler)
-                )
-                .sessionManagement(sessionManagement ->
-                        sessionManagement
+                .sessionManagement(sessionManagement -> sessionManagement
                                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)

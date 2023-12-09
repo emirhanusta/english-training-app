@@ -1,4 +1,4 @@
-import axios from "axios";
+import { GetWithAuth, PutWithAuth } from '../../helpers/axios_helper';
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
@@ -21,12 +21,12 @@ export default function EditWordList() {
 
     const onSubmit = async e => {
         e.preventDefault();
-        await axios.put(`http://localhost:8080/api/v1/word-list/update/${id}`, wordList);
+        await PutWithAuth(`http://localhost:8080/api/v1/word-list/update/${id}`, wordList);
         navigate("/viewwordlists");
     }
 
     const loadWordList = async () => {
-        const result = await axios.get(`http://localhost:8080/api/v1/word-list/get/${id}`);
+        const result = await GetWithAuth(`http://localhost:8080/api/v1/word-list/get/${id}`);
         setWordList(result.data);
     }
 

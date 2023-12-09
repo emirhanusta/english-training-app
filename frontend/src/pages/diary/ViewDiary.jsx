@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect,useState } from "react";
 import { Link, useParams, useNavigate} from "react-router-dom";
 import { RiDeleteBin6Line, RiEdit2Line } from 'react-icons/ri';
+import { GetWithAuth, DeleteWithAuth } from "../../helpers/axios_helper";
 
 export default function ViewDiary() {
    let navigate = useNavigate();
@@ -13,12 +14,12 @@ export default function ViewDiary() {
     }, []);
 
     const loadDiary = async () => {
-        const result = await axios.get(`http://localhost:8080/api/v1/diary/get/${id}`);
+        const result = await GetWithAuth(`http://localhost:8080/api/v1/diary/get/${id}`);
         setDiary(result.data);
     }
     
   const deleteDiary = async id => {
-    await axios.delete(`http://localhost:8080/api/v1/diary/delete/${id}`);
+    await DeleteWithAuth(`http://localhost:8080/api/v1/diary/delete/${id}`);
     navigate("/viewdiarys");
   }
   return (

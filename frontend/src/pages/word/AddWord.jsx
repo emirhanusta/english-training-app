@@ -1,4 +1,4 @@
-import axios from "axios";
+import { PostWithAuth } from '../../helpers/axios_helper';
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Dropdown } from 'react-bootstrap';
@@ -27,12 +27,9 @@ export default function AddWord() {
     const onSubmit = async e => {
       e.preventDefault();
       try {
-        await axios.post("http://localhost:8080/api/v1/word/save", word);
-
+        await PostWithAuth("http://localhost:8080/api/v1/word/save", word);
         navigate(`/`);
-      
       } catch (error) {
-
         alert(error.response.data.message);
       }
     };

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, Route, useNavigate, useParams } from "react-router-dom";
+import { PutWithAuth, GetWithAuth} from "../../helpers/axios_helper";
 
 export default function EditDiary() {
     let navigate = useNavigate();
@@ -23,12 +24,12 @@ export default function EditDiary() {
 
     const onSubmit = async e => {
         e.preventDefault();
-        await axios.put(`http://localhost:8080/api/v1/diary/update/${id}`, diary);
+        await PutWithAuth(`http://localhost:8080/api/v1/diary/update/${id}`, diary);
         navigate(`/viewdiarydetails/${diary.id}`);
     }
 
     const loadDiary = async () => {
-        const result = await axios.get(`http://localhost:8080/api/v1/diary/get/${id}`);
+        const result = await GetWithAuth(`http://localhost:8080/api/v1/diary/get/${id}`);
         setDiary(result.data);
     }
 

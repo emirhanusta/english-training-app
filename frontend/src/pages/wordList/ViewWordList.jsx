@@ -1,4 +1,4 @@
-import axios from "axios";
+import { GetWithAuth } from '../../helpers/axios_helper';
 import React, { useEffect,useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
@@ -12,7 +12,7 @@ export default function ViewWordList() {
   const { id } = useParams();
 
   const loadWordList = async () => {
-    const result = await axios.get(`http://localhost:8080/api/v1/word-list/get/${id}`);
+    const result = await GetWithAuth(`http://localhost:8080/api/v1/word-list/get/${id}`);
     setWordList(result.data);
   }
 

@@ -1,5 +1,6 @@
 package englishtraining.dto.response;
 
+import englishtraining.model.Word;
 import englishtraining.model.WordList;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public record WordListDto(
                 wordList.getUser().getId(),
                 wordList.getWords() == null ? null : wordList.getWords()
                         .stream()
+                        .filter(Word::getActive)
                         .map(WordDto::from)
                         .toList());
     }
