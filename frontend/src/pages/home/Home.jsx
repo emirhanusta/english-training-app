@@ -3,10 +3,13 @@ import { Link } from 'react-router-dom';
 import Words from '../word/Words';
 
 export default function Home() {
+
+  const disabled = localStorage.getItem('currentUser') !== null ? false : true;
+
   return (
     <div class="container">
         <Words/>
-        <div class="row">
+        {!disabled ? <div class="row">
           <div class="col-sm-6 mb-3 mb-sm-0">
             <div class="card">
               <div class="card-body">
@@ -25,7 +28,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>   
+        </div> : null }  
    </div>
   )
 }
