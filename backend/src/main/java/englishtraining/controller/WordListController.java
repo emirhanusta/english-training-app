@@ -47,6 +47,10 @@ public class WordListController {
         return ResponseEntity.ok(wordListService.addWordToWordList(name, wordId));
     }
 
+    @PutMapping("/removeWord/{id}/{wordId}")
+    public ResponseEntity<WordListDto> removeWord(@PathVariable UUID id,@PathVariable UUID wordId) {
+        return ResponseEntity.ok(wordListService.removeWordFromWordList(id, wordId));
+    }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteWordList(@PathVariable UUID id) {

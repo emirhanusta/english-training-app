@@ -4,30 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3aef9cd-46e3-4b60-af47-7627ca6f1a5d" name="Changes" comment="Fix: security based errors fixed">
+    <list default="true" id="b3aef9cd-46e3-4b60-af47-7627ca6f1a5d" name="Changes" comment="Update: frontend and backend updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/config/SecuriyConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/config/SecuriyConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/response/WordListDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/dto/response/WordListDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/exception/DiaryNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/exception/DiaryNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/security/JWTAccessDeniedHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/security/JWTAccessDeniedHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/security/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/security/JwtAuthenticationEntryPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/security/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/security/JwtFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/diary/AddDiary.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/diary/AddDiary.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/diary/Diary.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/diary/Diary.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/diary/EditDiary.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/diary/EditDiary.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/diary/ViewDiary.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/diary/ViewDiary.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/word/AddWord.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/word/AddWord.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/word/EditWord.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/word/EditWord.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/word/ViewWord.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/word/ViewWord.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/word/Words.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/word/Words.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/wordList/AddWordList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/wordList/AddWordList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/wordList/EditWordList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/wordList/EditWordList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/wordList/ViewWordList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/wordList/ViewWordList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/wordList/WordList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/wordList/WordList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/WordListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/controller/WordListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/WordList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/model/WordList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/repository/WordListRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/repository/WordListRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/englishtraining/service/WordListService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/englishtraining/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/englishtraining/service/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/englishtraining/service/WordListServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/englishtraining/service/WordListServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,22 +115,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DiaryServiceTest.shouldReturnListOfDiaryDto_WhenGivenPageAndSize" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="english-training-backend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="englishtraining.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="englishtraining.service" />
-      <option name="MAIN_CLASS_NAME" value="englishtraining.service.DiaryServiceTest" />
-      <option name="METHOD_NAME" value="shouldReturnListOfDiaryDto_WhenGivenPageAndSize" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="english-training-backend" />
       <extension name="coverage">
@@ -161,7 +130,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.shouldReturnUserDto_WhenGivenIdWithUserRequestAndUserExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceTest.shouldDeleteUser_WhenGivenIdAndUserExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="english-training-backend" />
       <extension name="coverage">
         <pattern>
@@ -171,13 +140,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="englishtraining.service" />
       <option name="MAIN_CLASS_NAME" value="englishtraining.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="shouldReturnUserDto_WhenGivenIdWithUserRequestAndUserExists" />
+      <option name="METHOD_NAME" value="shouldDeleteUser_WhenGivenIdAndUserExists" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WordListServiceTest.shouldReturnListOfWordListDto_WhenGivenPageAndSize" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WordListServiceTest.shouldDeleteAllWordLists_WhenGivenUserId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="english-training-backend" />
       <extension name="coverage">
         <pattern>
@@ -187,7 +156,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="englishtraining.service" />
       <option name="MAIN_CLASS_NAME" value="englishtraining.service.WordListServiceTest" />
-      <option name="METHOD_NAME" value="shouldReturnListOfWordListDto_WhenGivenPageAndSize" />
+      <option name="METHOD_NAME" value="shouldDeleteAllWordLists_WhenGivenUserId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WordListServiceTest.shouldDeleteAllWordLists_WhenGivenUserIdAndUserExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="english-training-backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="englishtraining.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="englishtraining.service" />
+      <option name="MAIN_CLASS_NAME" value="englishtraining.service.WordListServiceTest" />
+      <option name="METHOD_NAME" value="shouldDeleteAllWordLists_WhenGivenUserIdAndUserExist" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -202,10 +187,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.EnglishTrainingApplication" />
-        <item itemvalue="JUnit.WordListServiceTest.shouldReturnListOfWordListDto_WhenGivenPageAndSize" />
-        <item itemvalue="JUnit.DiaryServiceTest.shouldReturnListOfDiaryDto_WhenGivenPageAndSize" />
+        <item itemvalue="JUnit.UserServiceTest.shouldDeleteUser_WhenGivenIdAndUserExists" />
         <item itemvalue="JUnit.UserServiceTest" />
-        <item itemvalue="JUnit.UserServiceTest.shouldReturnUserDto_WhenGivenIdWithUserRequestAndUserExists" />
+        <item itemvalue="JUnit.WordListServiceTest.shouldDeleteAllWordLists_WhenGivenUserId" />
+        <item itemvalue="JUnit.WordListServiceTest.shouldDeleteAllWordLists_WhenGivenUserIdAndUserExist" />
       </list>
     </recent_temporary>
   </component>
@@ -400,7 +385,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702070170552</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Update: frontend and backend updated">
+      <created>1702144573737</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1702144573737</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -415,7 +407,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="crud operations edited" />
     <MESSAGE value="new methods added to WordController" />
     <MESSAGE value="Some improvements for the backend" />
     <MESSAGE value="fixup! unique name restriction added for word" />
@@ -440,7 +431,8 @@
     <MESSAGE value="Added: unit test added for UserDetailsServiceImpl" />
     <MESSAGE value="Added: all unit tests added" />
     <MESSAGE value="Fix: security based errors fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix: security based errors fixed" />
+    <MESSAGE value="Update: frontend and backend updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update: frontend and backend updated" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
@@ -463,6 +455,9 @@
       <FILTER>englishtraining.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/english_training$AuthServiceTest_shouldThrowAlreadyExistException_WhenUserExists.ic" NAME="AuthServiceTest.shouldThrowAlreadyExistException_WhenUserExists Coverage Results" MODIFIED="1701884577259" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>englishtraining.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/english_training$WordListServiceTest_shouldThrowWordNotFoundException_WhenGivenIdAndWordIdAndWordListExistWithIdAndWordListDoesNotContainWordWithThisId.ic" NAME="WordListServiceTest.shouldThrowWordNotFoundException_WhenGivenIdAndWordIdAndWordListExistWithIdAndWordListDoesNotContainWordWithThisId Coverage Results" MODIFIED="1702311364353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>englishtraining.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/english_training$UserDetailsServiceImplTest_shouldThrowUsernameNotFoundException_WhenGivenUsernameAndUserNotExists.ic" NAME="UserDetailsServiceImplTest.shouldThrowUsernameNotFoundException_WhenGivenUsernameAndUserNotExists Coverage Results" MODIFIED="1701883238173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -496,6 +491,9 @@
       <FILTER>englishtraining.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/english_training$WordListServiceTest_shouldThrowAlreadyExistException_WhenGivenWordListRequestAndId.ic" NAME="WordListServiceTest.shouldThrowAlreadyExistException_WhenGivenWordListRequestAndId Coverage Results" MODIFIED="1701465250550" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>englishtraining.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/english_training$WordListServiceTest_shouldDeleteAllWordLists_WhenGivenUserIdAndUserExist.ic" NAME="WordListServiceTest.shouldDeleteAllWordLists_WhenGivenUserIdAndUserExist Coverage Results" MODIFIED="1702314550223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>englishtraining.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/english_training$AuthServiceTest.ic" NAME="AuthServiceTest Coverage Results" MODIFIED="1701885185088" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -549,7 +547,7 @@
     <SUITE FILE_PATH="coverage/english_training$TokenServiceTest_shouldThrowExceptionForInvalidToken.ic" NAME="TokenServiceTest.shouldThrowExceptionForInvalidToken Coverage Results" MODIFIED="1701971205811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>englishtraining.service.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/english_training$WordListServiceTest.ic" NAME="WordListServiceTest Coverage Results" MODIFIED="1701879252861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/english_training$WordListServiceTest.ic" NAME="WordListServiceTest Coverage Results" MODIFIED="1702310950825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>englishtraining.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/english_training$WordListServiceTest_shouldReturnListOfWordListDto_WhenGivenPageAndSize.ic" NAME="WordListServiceTest.shouldReturnListOfWordListDto_WhenGivenPageAndSize Coverage Results" MODIFIED="1701462121323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -573,16 +571,22 @@
     <SUITE FILE_PATH="coverage/english_training$DiaryServiceTest_shouldReturnDiaryDto_WhenGivenDiaryRequestAndIdAndDiaryExists.ic" NAME="DiaryServiceTest.shouldReturnDiaryDto_WhenGivenDiaryRequestAndIdAndDiaryExists Coverage Results" MODIFIED="1701550014655" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>englishtraining.service.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/english_training$WordListServiceTest_shouldReturnWordListDto_WhenGivenIdAndWordIdAndWordListExistWithIdAndWordListContainWordWithThisId.ic" NAME="WordListServiceTest.shouldReturnWordListDto_WhenGivenIdAndWordIdAndWordListExistWithIdAndWordListContainWordWithThisId Coverage Results" MODIFIED="1702311480718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>englishtraining.service.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/english_training$DiaryServiceTest_shouldThrowDiaryNotFoundException_WhenGivenIdAndDiaryDoesNotExist2.ic" NAME="DiaryServiceTest.shouldThrowDiaryNotFoundException_WhenGivenIdAndDiaryDoesNotExist2 Coverage Results" MODIFIED="1701550222320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>englishtraining.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/english_training$ESWordServiceTest_shouldUpdateWordInElasticsearchWhenUpdateESWordIsCalledWithAWord.ic" NAME="ESWordServiceTest.shouldUpdateWordInElasticsearchWhenUpdateESWordIsCalledWithAWord Coverage Results" MODIFIED="1701887290775" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>englishtraining.service.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/english_training$UserServiceTest_shouldDeleteUser_WhenGivenIdAndUserExists.ic" NAME="UserServiceTest.shouldDeleteUser_WhenGivenIdAndUserExists Coverage Results" MODIFIED="1701882144638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/english_training$WordListServiceTest_shouldThrowNotFoundException_WhenGivenIdAndWordIdAndWordListDoesNotExistWithId.ic" NAME="WordListServiceTest.shouldThrowNotFoundException_WhenGivenIdAndWordIdAndWordListDoesNotExistWithId Coverage Results" MODIFIED="1702311540422" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>englishtraining.service.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/english_training$UserServiceTest.ic" NAME="UserServiceTest Coverage Results" MODIFIED="1701882178546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/english_training$UserServiceTest.ic" NAME="UserServiceTest Coverage Results" MODIFIED="1702314693200" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>englishtraining.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/english_training$UserServiceTest_shouldDeleteUser_WhenGivenIdAndUserExists.ic" NAME="UserServiceTest.shouldDeleteUser_WhenGivenIdAndUserExists Coverage Results" MODIFIED="1702314804066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>englishtraining.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/english_training$WordListServiceTest_shouldThrowWordListNotFoundException_WhenGivenIdAndWordListDoesNotExist.ic" NAME="WordListServiceTest.shouldThrowWordListNotFoundException_WhenGivenIdAndWordListDoesNotExist Coverage Results" MODIFIED="1701465342146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -643,6 +647,9 @@
       <FILTER>englishtraining.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/english_training$WordListServiceTest_shouldReturnWordListDto_WhenGivenWordListRequest.ic" NAME="WordListServiceTest.shouldReturnWordListDto_WhenGivenWordListRequest Coverage Results" MODIFIED="1701549760227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>englishtraining.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/english_training$WordListServiceTest_shouldDeleteAllWordLists_WhenGivenUserId.ic" NAME="WordListServiceTest.shouldDeleteAllWordLists_WhenGivenUserId Coverage Results" MODIFIED="1702314647619" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>englishtraining.service.*</FILTER>
     </SUITE>
   </component>

@@ -5,6 +5,8 @@ import englishtraining.dto.response.UserDto;
 import englishtraining.exception.UserNotFoundException;
 import englishtraining.model.User;
 import englishtraining.repository.UserRepository;
+import jakarta.transaction.Transactional;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +15,12 @@ import java.util.UUID;
 @Service
 public class UserService {
     private final UserRepository userRepository;
+    private final WordListService wordListService;
 
-    public UserService(UserRepository userRepository) {
+
+    public UserService(UserRepository userRepository, @Lazy WordListService wordListService) {
         this.userRepository = userRepository;
+        this.wordListService = wordListService;
     }
 
     protected User saveUser(User user) {
@@ -39,8 +44,11 @@ public class UserService {
         );
     }
 
+    @Transactional
     public void deleteUser(UUID id) {
-        userRepository.delete(findUserById(id));
+        User user = findUserById(id);
+        wordListService.deleteAllByUserId(id);
+        userRepository.delete(user);
     }
 
     public UserDto updateUser(UUID id, UserRequest request) {

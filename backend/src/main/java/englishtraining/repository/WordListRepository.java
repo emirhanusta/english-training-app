@@ -14,4 +14,6 @@ public interface WordListRepository extends JpaRepository<WordList, UUID> {
     Boolean existsByName(String name);
 
     Page<WordList> findAllByUserId(PageRequest pageRequest, UUID userId);
+
+    void deleteAllByUserId(UUID id);
 }

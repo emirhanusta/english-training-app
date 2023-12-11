@@ -24,10 +24,12 @@ class UserServiceTest {
 
     private UserService userService;
     private UserRepository userRepository;
+    private WordListService wordListService;
     @BeforeEach
     void setUp() {
         userRepository = mock(UserRepository.class);
-        userService = new UserService(userRepository);
+        wordListService = mock(WordListService.class);
+        userService = new UserService(userRepository, wordListService);
     }
 
     @Test
@@ -135,6 +137,7 @@ class UserServiceTest {
 
         verify(userRepository, times(1)).findById(id);
         verify(userRepository, times(1)).delete(user);
+        verify(wordListService, times(1)).deleteAllByUserId(id);
     }
 
     @Test

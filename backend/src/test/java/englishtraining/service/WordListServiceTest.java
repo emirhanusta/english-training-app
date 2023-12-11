@@ -4,6 +4,7 @@ import englishtraining.dto.request.WordListRequest;
 import englishtraining.dto.response.WordListDto;
 import englishtraining.exception.AlreadyExistException;
 import englishtraining.exception.WordListNotFoundException;
+import englishtraining.exception.WordNotFoundException;
 import englishtraining.model.User;
 import englishtraining.model.Word;
 import englishtraining.model.WordList;
@@ -288,6 +289,92 @@ class WordListServiceTest {
         verify(wordListRepository, times(1)).findByName(wordListName);
         verify(wordService, times(0)).findWordById(wordId);
         verify(wordListRepository, times(0)).save(any());
+    }
+
+    @Test
+    @DisplayName("should throw WordNotFoundException when given id and wordId and wordList exist with id" +
+            "and wordList does not contain word with this id")
+    void shouldThrowWordNotFoundException_WhenGivenIdAndWordIdAndWordListExistWithIdAndWordListDoesNotContainWordWithThisId() {
+        // given
+        UUID id = UUID.randomUUID();
+        UUID wordId = UUID.randomUUID();
+        User user = new User("username", "password", "email");
+        WordList wordList = new WordList("name", new ArrayList<>(), user);
+        Word word = new Word("TestWord", "TestDefinition", null, Level.A1, WordStatus.LEARNING);
+        word.setId(wordId);
+
+        // when
+        when(wordListRepository.findById(id)).thenReturn(Optional.of(wordList));
+
+        // then
+        assertThatThrownBy(() -> wordListService.removeWordFromWordList(id, wordId))
+                .isInstanceOf(WordNotFoundException.class)
+                .hasMessageContaining("Word not found in word list with id: " + wordId);
+
+        // verify
+        verify(wordListRepository, times(1)).findById(id);
+        verify(wordListRepository, times(0)).save(wordList);
+    }
+
+    @Test
+    @DisplayName("should return wordListDto when given id and wordId and wordList exist with id" +
+            "and wordList contain word with this id")
+    void shouldReturnWordListDto_WhenGivenIdAndWordIdAndWordListExistWithIdAndWordListContainWordWithThisId() {
+        // given
+        UUID id = UUID.randomUUID();
+        UUID wordId = UUID.randomUUID();
+        User user = new User("username", "password", "email");
+        WordList wordList = new WordList("name", new ArrayList<>(), user);
+        Word word = new Word("TestWord", "TestDefinition", null, Level.A1, WordStatus.LEARNING);
+        word.setId(wordId);
+        Objects.requireNonNull(wordList.getWords()).add(word);
+
+        // when
+        when(wordListRepository.findById(id)).thenReturn(Optional.of(wordList));
+        when(wordListRepository.save(wordList)).thenReturn(wordList);
+
+        // then
+        WordListDto result = wordListService.removeWordFromWordList(id, wordId);
+
+        assertEquals("name", result.name());
+        assertEquals(0, result.words().size());
+
+        // verify
+        verify(wordListRepository, times(1)).findById(id);
+        verify(wordListRepository, times(1)).save(wordList);
+    }
+
+    @Test
+    @DisplayName("should throw WordListNotFoundException when given id and wordId and wordList does not exist with id")
+    void shouldThrowWordListNotFoundException_WhenGivenIdAndWordIdAndWordListDoesNotExistWithId() {
+        // given
+        UUID id = UUID.randomUUID();
+        UUID wordId = UUID.randomUUID();
+
+        // when
+        when(wordListRepository.findById(id)).thenReturn(Optional.empty());
+
+        // then
+        assertThatThrownBy(() -> wordListService.removeWordFromWordList(id, wordId))
+                .isInstanceOf(WordListNotFoundException.class)
+                .hasMessageContaining("Word list not found with id: " + id);
+
+        // verify
+        verify(wordListRepository, times(1)).findById(id);
+        verify(wordListRepository, times(0)).save(any());
+    }
+
+    @Test
+    @DisplayName("should delete all word lists when given user id")
+    void shouldDeleteAllWordLists_WhenGivenUserId() {
+        // given
+        UUID userId = UUID.randomUUID();
+
+        // when
+        wordListService.deleteAllByUserId(userId);
+
+        // then
+        verify(wordListRepository, times(1)).deleteAllByUserId(userId);
     }
     @AfterEach
     void tearDown() {

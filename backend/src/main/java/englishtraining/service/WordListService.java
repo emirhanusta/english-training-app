@@ -4,6 +4,7 @@ import englishtraining.dto.response.WordListDto;
 import englishtraining.dto.request.WordListRequest;
 import englishtraining.exception.AlreadyExistException;
 import englishtraining.exception.WordListNotFoundException;
+import englishtraining.exception.WordNotFoundException;
 import englishtraining.model.WordList;
 import englishtraining.repository.WordListRepository;
 import org.springframework.data.domain.PageRequest;
@@ -20,6 +21,7 @@ public class WordListService {
     private final WordListRepository wordListRepository;
     private final WordService wordService;
     private final UserService userService;
+
     public WordListService(WordListRepository wordListRepository, WordService wordService, UserService userService) {
         this.wordListRepository = wordListRepository;
         this.wordService = wordService;
@@ -79,6 +81,24 @@ public class WordListService {
         return WordListDto.from(wordList);
     }
 
+    public WordListDto removeWordFromWordList(UUID id, UUID wordId) {
+        WordList wordList = findWordListById(id);
+        Objects.requireNonNull(wordList.getWords())
+                .stream()
+                .filter(word -> Objects.equals(word.getId(), wordId))
+                .findAny()
+                .ifPresentOrElse(
+                        word -> {
+                            wordList.getWords().remove(word);
+                            wordListRepository.save(wordList);
+                        },
+                        () -> {
+                            throw new WordNotFoundException("Word not found in word list with id: " + wordId);
+                        }
+                );
+        return WordListDto.from(wordList);
+    }
+
     private WordList findWordListByName(String name) {
         return wordListRepository.findByName(name).orElseThrow(
                 () -> new WordListNotFoundException("Word list not found with name: " + name)
@@ -95,5 +115,9 @@ public class WordListService {
         if (wordListRepository.existsByName(name)) {
             throw new AlreadyExistException("Word list already exists with name: " + name);
         }
+    }
+
+    protected void deleteAllByUserId(UUID id) {
+        wordListRepository.deleteAllByUserId(id);
     }
 }
