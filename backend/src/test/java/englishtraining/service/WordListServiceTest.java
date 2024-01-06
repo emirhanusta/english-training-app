@@ -9,7 +9,6 @@ import englishtraining.model.User;
 import englishtraining.model.Word;
 import englishtraining.model.WordList;
 import englishtraining.model.enums.Level;
-import englishtraining.model.enums.WordStatus;
 import englishtraining.repository.WordListRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -223,7 +222,7 @@ class WordListServiceTest {
         UUID wordId = UUID.randomUUID();
         User user = new User("username", "password", "email");
         WordList wordList = new WordList(wordListName, new ArrayList<>(), user);
-        Word existingWord = new Word("TestWord", "TestDefinition", null, Level.A1, WordStatus.LEARNING);
+        Word existingWord = new Word("TestWord", "TestDefinition", null, Level.A1);
         existingWord.setId(wordId);
         Objects.requireNonNull(wordList.getWords()).add(existingWord);
 
@@ -249,7 +248,7 @@ class WordListServiceTest {
         UUID wordId = UUID.randomUUID();
         User user = new User("username", "password", "email");
         WordList wordList = new WordList(wordListName, new ArrayList<>(), user);
-        Word word = new Word("TestWord", "TestDefinition", null, Level.A1, WordStatus.LEARNING);
+        Word word = new Word("TestWord", "TestDefinition", null, Level.A1);
         word.setId(wordId);
 
         // when
@@ -300,7 +299,7 @@ class WordListServiceTest {
         UUID wordId = UUID.randomUUID();
         User user = new User("username", "password", "email");
         WordList wordList = new WordList("name", new ArrayList<>(), user);
-        Word word = new Word("TestWord", "TestDefinition", null, Level.A1, WordStatus.LEARNING);
+        Word word = new Word("TestWord", "TestDefinition", null, Level.A1);
         word.setId(wordId);
 
         // when
@@ -325,7 +324,7 @@ class WordListServiceTest {
         UUID wordId = UUID.randomUUID();
         User user = new User("username", "password", "email");
         WordList wordList = new WordList("name", new ArrayList<>(), user);
-        Word word = new Word("TestWord", "TestDefinition", null, Level.A1, WordStatus.LEARNING);
+        Word word = new Word("TestWord", "TestDefinition", null, Level.A1);
         word.setId(wordId);
         Objects.requireNonNull(wordList.getWords()).add(word);
 

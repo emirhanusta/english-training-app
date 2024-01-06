@@ -6,10 +6,7 @@ import englishtraining.exception.AlreadyExistException;
 import englishtraining.exception.WordNotFoundException;
 import englishtraining.model.enums.Level;
 import englishtraining.model.Word;
-import englishtraining.model.enums.WordStatus;
 import englishtraining.repository.WordRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -33,12 +30,11 @@ public class WordService {
         return WordDto.from(findWordById(id));
     }
 
-    public List<WordDto> getAllWithFilter(int page, int size, String level, String status, String direction, String sortField) {
+    public List<WordDto> getAllWithFilter(int page, int size, String level, String direction, String sortField) {
         Sort sort = Sort.by(Sort.Direction.fromString(direction), sortField);
         PageRequest pageRequest = PageRequest.of(page, size).withSort(sort);
         return wordRepository.findAllByActiveTrue(pageRequest).stream()
                 .filter(word -> level.equals("ALL") || Level.valueOf(level).equals(word.getLevel())) // filter by level
-                .filter(word -> status.equals("ALL") || WordStatus.valueOf(status).equals(word.getStatus())) // filter by status
                 .map(WordDto::from)
                 .toList();
     }
@@ -65,7 +61,6 @@ public class WordService {
         word.setDefinition(wordRequest.definition());
         word.setExampleSentences(wordRequest.exampleSentences());
         word.setLevel(Level.valueOf(wordRequest.level()));
-        word.setStatus(WordStatus.valueOf(wordRequest.status()));
         wordRepository.save(word);
         esWordService.updateESWord(word);
         return WordDto.from(word);

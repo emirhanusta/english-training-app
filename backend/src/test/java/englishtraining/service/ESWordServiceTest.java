@@ -4,7 +4,6 @@ import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import englishtraining.exception.WordNotFoundException;
 import englishtraining.model.Word;
 import englishtraining.model.enums.Level;
-import englishtraining.model.enums.WordStatus;
 import englishtraining.model.es.ESWord;
 import englishtraining.repository.ESWordRepository;
 import org.junit.jupiter.api.AfterEach;
@@ -40,8 +39,7 @@ class ESWordServiceTest {
                 "NAME",
                 "definition",
                 null,
-                Level.A1,
-                WordStatus.LEARNING
+                Level.A1
         );
         word.setId(id);
         ESWord esWord = new ESWord(
@@ -49,8 +47,8 @@ class ESWordServiceTest {
                 word.getName(),
                 word.getDefinition(),
                 null,
-                Objects.requireNonNull(word.getLevel()).toString(),
-                word.getStatus().toString());
+                Objects.requireNonNull(word.getLevel()).toString()
+        );
 
         // when
         when(esWordRepository.save(esWord)).thenReturn(esWord);
@@ -70,8 +68,7 @@ class ESWordServiceTest {
                 "NAME",
                 "definition",
                 null,
-                Level.A1,
-                WordStatus.LEARNING
+                Level.A1
         );
         word.setId(id);
         ESWord esWord = new ESWord(
@@ -79,8 +76,8 @@ class ESWordServiceTest {
                 word.getName(),
                 word.getDefinition(),
                 null,
-                Objects.requireNonNull(word.getLevel()).toString(),
-                word.getStatus().toString());
+                Objects.requireNonNull(word.getLevel()).toString()
+        );
 
         // when
         when(esWordRepository.findById(anyString())).thenReturn(Optional.of(esWord));
@@ -102,8 +99,7 @@ class ESWordServiceTest {
                 "NAME",
                 "definition",
                 null,
-                Level.A1,
-                WordStatus.LEARNING
+                Level.A1
         );
         word.setId(id);
 
@@ -127,8 +123,7 @@ class ESWordServiceTest {
                 "NAME",
                 "definition",
                 null,
-                Level.A1,
-                WordStatus.LEARNING
+                Level.A1
         );
         word.setId(id);
         ESWord esWord = new ESWord(
@@ -136,8 +131,8 @@ class ESWordServiceTest {
                 word.getName(),
                 word.getDefinition(),
                 null,
-                Objects.requireNonNull(word.getLevel()).toString(),
-                word.getStatus().toString());
+                Objects.requireNonNull(word.getLevel()).toString()
+        );
 
         // when
         when(esWordRepository.findById(anyString())).thenReturn(Optional.of(esWord));

@@ -12,7 +12,6 @@ public record WordDto(
         String name,
         String definition,
         String level,
-        String status,
         List<String> exampleSentences
 ) {
     public static WordDto from(Word word) {
@@ -21,7 +20,6 @@ public record WordDto(
                  word.getName(),
                  word.getDefinition(),
                  valueOf(word.getLevel()),
-                 valueOf(word.getStatus()),
                  word.getExampleSentences() == null ? null : word.getExampleSentences());
     }
 }

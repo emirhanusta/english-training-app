@@ -10,7 +10,6 @@ public record WordRequest(
         @Nonnull
         String definition,
         String level,
-        String status,
         List<String> exampleSentences
 ) {
 }

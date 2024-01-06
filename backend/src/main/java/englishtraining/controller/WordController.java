@@ -43,9 +43,8 @@ public class WordController {
                                                               @RequestParam(defaultValue = "0") int page,
                                                               @RequestParam(defaultValue = "5") int size,
                                                               @RequestParam(defaultValue = "ALL") String level,
-                                                              @RequestParam(defaultValue = "ALL") String status,
                                                               @RequestParam(defaultValue = "name") String sortField) {
-        return ResponseEntity.ok(wordService.getAllWithFilter(page, size, level, status, direction, sortField));
+        return ResponseEntity.ok(wordService.getAllWithFilter(page, size, level, direction, sortField));
     }
     @PutMapping("/update/{id}")
     public ResponseEntity<WordDto> updateWord(@PathVariable UUID id,@Validated @RequestBody WordRequest wordRequest) {

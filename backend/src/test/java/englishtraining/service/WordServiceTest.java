@@ -6,7 +6,6 @@ import englishtraining.exception.AlreadyExistException;
 import englishtraining.exception.WordNotFoundException;
 import englishtraining.model.Word;
 import englishtraining.model.enums.Level;
-import englishtraining.model.enums.WordStatus;
 import englishtraining.repository.WordRepository;
 import org.junit.jupiter.api.*;
 import org.springframework.data.domain.*;
@@ -38,15 +37,13 @@ class WordServiceTest {
                 "NAME",
                 "definition",
                 Level.A1.toString(),
-                WordStatus.LEARNING.toString(),
                 null
         );
         Word word = new Word(
                 wordRequest.name(),
                 wordRequest.definition(),
                 null,
-                Level.valueOf(wordRequest.level()),
-                WordStatus.valueOf(wordRequest.status())
+                Level.valueOf(wordRequest.level())
         );
         //when
         when(wordRepository.save(word)).thenReturn(word);
@@ -66,7 +63,6 @@ class WordServiceTest {
                 "NAME",
                 "definition",
                 Level.A1.toString(),
-                WordStatus.LEARNING.toString(),
                 null
         );
 
@@ -89,15 +85,13 @@ class WordServiceTest {
                 "NAME",
                 "definition",
                 Level.A1.toString(),
-                WordStatus.LEARNING.toString(),
                 null
         );
         Word word = new Word(
                 wordRequest.name(),
                 wordRequest.definition(),
                 null,
-                Level.valueOf(wordRequest.level()),
-                WordStatus.valueOf(wordRequest.status())
+                Level.valueOf(wordRequest.level())
         );
         //when
         when(wordRepository.findByIdAndActiveTrue(id)).thenReturn(Optional.of(word));
@@ -122,15 +116,13 @@ class WordServiceTest {
                 "NAME",
                 "definition",
                 Level.A1.toString(),
-                WordStatus.LEARNING.toString(),
                 null
         );
         Word word = new Word(
                 "NAME2",
                 wordRequest.definition(),
                 null,
-                Level.valueOf(wordRequest.level()),
-                WordStatus.valueOf(wordRequest.status())
+                Level.valueOf(wordRequest.level())
         );
         //when
         when(wordRepository.findByIdAndActiveTrue(id)).thenReturn(Optional.of(word));
@@ -156,8 +148,7 @@ class WordServiceTest {
                 "NAME",
                 "definition",
                 null,
-                Level.A1,
-                WordStatus.LEARNING
+                Level.A1
         );
         //when
         when(wordRepository.findByIdAndActiveTrue(id)).thenReturn(Optional.of(word));
@@ -177,8 +168,7 @@ class WordServiceTest {
                 "NAME",
                 "definition",
                 null,
-                Level.A1,
-                WordStatus.LEARNING
+                Level.A1
         );
         //when
         when(wordRepository.findByIdAndActiveTrue(id)).thenReturn(Optional.of(word));
@@ -195,22 +185,20 @@ class WordServiceTest {
         int page = 0;
         int size = 10;
         String level = Level.A1.toString();
-        String status = WordStatus.LEARNING.toString();
         String direction = "ASC";
         String sortedField = "name";
         Word word = new Word(
                 "NAME",
                 "definition",
                 null,
-                Level.A1,
-                WordStatus.LEARNING
+                Level.A1
         );
         List<Word> words = new ArrayList<>();
         words.add(word);
         PageRequest pageable = PageRequest.of(page, size, Sort.Direction.valueOf(direction), sortedField);
         //when
         when(wordRepository.findAllByActiveTrue(pageable)).thenReturn(words);
-        List<WordDto> result = wordService.getAllWithFilter(page, size, level, status, direction, sortedField);
+        List<WordDto> result = wordService.getAllWithFilter(page, size, level, direction, sortedField);
         //then
         assertEquals(result.size(), words.size());
         verify(wordRepository, times(1)).findAllByActiveTrue(pageable);

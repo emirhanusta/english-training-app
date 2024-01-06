@@ -47,7 +47,6 @@ public class ESWordService {
                                     esWord.getName(),
                                     esWord.getDefinition(),
                                     esWord.getLevel(),
-                                    esWord.getStatus(),
                                     esWord.getExampleSentences()
                             ))
                     .collect(Collectors.toList());
@@ -62,8 +61,7 @@ public class ESWordService {
                 word.getName(),
                 word.getDefinition(),
                 word.getExampleSentences(),
-                Objects.requireNonNull(word.getLevel()).toString(),
-                word.getStatus().toString()
+                Objects.requireNonNull(word.getLevel()).toString()
         );
         esWordRepository.save(esWord);
         logger.info("Word saved in ES: " + esWord);
@@ -76,7 +74,6 @@ public class ESWordService {
                     esWord.setDefinition(word.getDefinition());
                     esWord.setExampleSentences(word.getExampleSentences());
                     esWord.setLevel(Objects.requireNonNull(word.getLevel()).toString());
-                    esWord.setStatus(word.getStatus().toString());
                     esWordRepository.save(esWord);
                     logger.info("Word updated in ES: " + esWord);
                 },

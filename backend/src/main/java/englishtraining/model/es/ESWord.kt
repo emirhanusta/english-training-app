@@ -17,7 +17,6 @@ data class ESWord @JvmOverloads constructor(
     var name: String? = null,
     var definition: String? = null,
     var exampleSentences: List<String>? = null,
-    var level: String? = null,
-    var status: String? = null
+    var level: String? = null
 )
 
